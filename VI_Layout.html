@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs({
+      collapsible: true
+    });
+  });
+  
+  $(function() {
+    $( "#VisualizationTabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#vistabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+  });
+</script>
+</head>
+
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:1px;
+}
+
+body {
+	height: 100%;
+}
+
+#RightContainer {
+
+    height: 590px;
+    width: 35%;
+    float:left;
+    padding:10px; 	 	 
+}
+
+#CategoryButtonContainer {
+
+
+	font: 12px Arial;
+	padding: 5px;
+	height: 210px;
+	width: 25px;
+	float:left;
+}
+
+.Cat0_Btn {
+  font-family: arial;
+  color: #14396A !important;
+  font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #31B404,  #21610B);
+  background: -ms-linear-gradient(top,  #31B404,  #21610B);
+  background: -webkit-gradient(linear, left top, left bottom, from(#31B404), to(#21610B));
+  background: -moz-linear-gradient(top,  #31B404,  #468CCF);
+}
+.Cat0_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #21610B,  #31B404);
+  background: -ms-linear-gradient(top,  #21610B,  #31B404);
+  background: -webkit-gradient(linear, left top, left bottom, from(#21610B), to(#31B404));
+  background: -moz-linear-gradient(top,  #21610B,  #31B404);
+}
+
+.Cat1_Btn {
+  font-family: arial;
+  color: #14396A !important;
+  font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #FF9E00,  #FF7700);
+  background: -ms-linear-gradient(top,  #FF9E00,  #FF7700);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF9E00), to(#FF7700));
+  background: -moz-linear-gradient(top,  #FF9E00,  #FF7700);
+}
+.Cat1_Btn:hover {
+  color: #14396A !important;
+  background: #FF7700;
+  background: linear-gradient(top,  #FF7700,  #FF9E00);
+  background: -ms-linear-gradient(top,  #FF7700,  #FF9E00);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF7700), to(#FF9E00));
+  background: -moz-linear-gradient(top,  #FF7700,  #FF9E00);
+}
+
+.Cat2_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #9F8F6B,  #5E543E);
+  background: -ms-linear-gradient(top,  #9F8F6B,  #5E543E);
+  background: -webkit-gradient(linear, left top, left bottom, from(#9F8F6B), to(#5E543E));
+  background: -moz-linear-gradient(top,  #9F8F6B,  #5E543E);
+}
+.Cat2_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #5E543E,  #9F8F6B);
+  background: -ms-linear-gradient(top,  #5E543E,  #9F8F6B);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5E543E), to(#9F8F6B));
+  background: -moz-linear-gradient(top,  #5E543E,  #9F8F6B);
+}
+
+.Cat3_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat3_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.Cat4_Btn {
+  font-family: arial;
+  color: #14396A !important;
+    font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat4_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.Cat5_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat5_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.Cat6_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat6_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.Cat7_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat7_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.Cat8_Btn {
+  font-family: arial;
+  color: #14396A !important;
+    font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+   border: 2px solid #000000;
+  background: #EE0000;
+  background: linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
+  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+}
+.Cat8_Btn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+.AllCat_Btn {
+  font-family: arial;
+  color: #14396A !important;
+   font-size: 10px;
+  box-shadow: 1px 1px 3px #525354;
+  padding: 3px 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+   border: 2px solid #000000;
+  background: white;
+  
+}
+.AllCat_Btn:hover {
+  color: #14396A !important;
+  background: white;
+ 
+}
+
+#MapContainer {
+
+
+	font: 12px Arial;
+	padding: 5px;
+	height: 210px;
+	width: 95%;
+}
+
+#YearSliderContainer {
+
+
+	font: 12px Arial;
+	padding: 5px;
+	height: 20px;
+	width: 95%;
+}
+
+#CollapsableMenuContainer {
+
+
+	font: 12px Arial;
+	padding-top: 30px;
+	height: 55%;
+	width: 95%;
+}
+
+aside {
+    width:300px;
+    float:left;
+    padding:10px;	 	 
+}
+
+.ui-tabs-vertical { height: 33em; width: 44em; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 7em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; height:1em }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 5px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: .2em; float: right; width: 40em; }
+
+
+
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:2px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+
+<header>
+<h1>World Economy</h1>
+</header>
+
+<div id="RightContainer">
+
+
+	<div id="MainMapSpace">
+
+			<div id="CategoryButtonContainer">
+				<button type="button" class=Cat0_Btn>0</button>
+				<button type="button" class=Cat1_Btn>1</button>
+				<button type="button" class=Cat2_Btn>2</button>
+				<button type="button" class=Cat3_Btn>3</button>
+				<button type="button" class=Cat4_Btn>4</button>
+				<button type="button" class=Cat5_Btn>5</button>
+				<button type="button" class=Cat6_Btn>6</button>
+				<button type="button" class=Cat7_Btn>7</button>
+				<button type="button" class=Cat8_Btn>8</button>
+				<button type="button" class=AllCat_Btn>+</button>
+			
+			</div>
+
+			<div id= "MapContainer">
+			 
+				<img src="MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right">
+
+			</div>
+			 
+			<div id = "YearSliderContainer">
+				<img src="rangeslider.png" height="100%" width="100%" style="float:right">
+			</div>
+	</div>
+
+	<div id = "CollapsableMenuContainer">
+	
+		<div id="tabs">
+		  <ul>
+			<li><a href="#tabs-1">Trade Partners</a></li>
+			<li><a href="#tabs-2">Product Categories</a></li>
+			<li><a href="#tabs-3">Others</a></li>
+		  </ul>
+		  <div id="tabs-1">
+			
+			<!-- CHORD DIAGRAM GOES HERE <img src="MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right"> -->
+			
+		  </div>
+		  <div id="tabs-2">
+			
+			<!-- PRODUCT TREE GOES HERE <img src="MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right"> -->
+			
+		  </div>
+		  <div id="tabs-3">
+			<p><strong>Other stuff</strong></p>	
+		  </div>
+		</div>
+
+	</div>
+    
+
+</div>
+
+
+
+<aside>
+
+	<div id="VisualizationTabs">
+  <ul>
+    <li><a href="#vistabs-1">By rank</a></li>
+    <li><a href="#vistabs-2">By product</a></li>
+    <li><a href="#vistabs-3">By country</a></li>
+  </ul>
+  <div id="vistabs"  style="background-color:gray; width:36em; height:33em; float:left">
+  <div id="vistabs-1" style="height:32em; width:35em">
+		<div id="WorldCloudContainer" style="width:10em;height:32em; float:left">
+		<p style="font: 20px Arial; line-height:1px; padding-bottom:2px">Portugal</p>
+		<img src="wordmap.png" style="height:60%;width:100%"></img>
+		<img src="fakeselect.png" style="height:30%;width:90%;padding-left:10px"></img>
+
+		</div>
+			
+  <div id="CountryVisContainer" style="height:33em;width:25em;float:left">
+		<p style="font:20px Arial; text-align:center">Top 5 exported products</p>
+		<img src="fakebar.png" style="width:80%;height:30%;padding:20px;padding-left:45px;float:left"></img>
+		
+		<div class="ui form">
+  <div class="inline fields" style="padding:20px">
+    <label>Select one:</label><br>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="frequency" checked="checked">
+        <label>Top 5</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="frequency">
+        <label>Bottom 5</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="frequency">
+        <label>Compare two years</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="frequency">
+        <label>Compare trade dynamic</label>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		</div>
+  </div>
+  <div id="vistabs-2" style="height:32em; width:35em">
+    <!-- PUT SCATTERPLOT HERE -->
+  </div>
+  <div id="vistabs-3" style="height:32em; width:35em">
+    <img src="fakedual.png" height="80%" width="80%"></img>
+   </div>
+   </div>
+   
+</div>
+</aside>
+
+<footer>
+Grupo 9 - Instituto Superior Técnico
+</footer>
+
+</body>
+</html>
