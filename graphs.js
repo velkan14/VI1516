@@ -375,7 +375,7 @@ var svg = d3.select("#vistabs-2").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("#vistabs-2").append("div")
+var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
