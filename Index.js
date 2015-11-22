@@ -1,13 +1,14 @@
 var dataset;
 var data_sitcut;
 var data_names;
+var sitc;
 var data_sitc;
 d3.tsv("country_names.tsv", function (data2) {
         data_names = data2;
 })
 
 d3.tsv("SITC4_english_structure.tsv", function (data){
-
+    sitc = data;
     var array = [];
     var root = {"parent":null, "children": array,"value": "Products", "depth": 0};
     for(var i = 0; i < data.length; i++){
@@ -66,10 +67,12 @@ d3.tsv("year_origin_sitc2_final.tsv", function (data) {
         d.year = +d.year;
         d.import_val = +d.import_val;
         d.export_val = +d.export_val;
+        d["sitc_string"] = d["sitc"];
         d["sitc"] = +d["sitc"];
     });
-    gen_vis();
+    //gen_vis();
     //gen_tree();
+    genChord();
     genScatterPlot();
 })
 
@@ -78,6 +81,14 @@ d3.tsv("year_origin_sitc2_final.tsv", function (data) {
 //bastam dois idiomas
 function getNameFromCode(code){
     for(var i = 0; i < data_names.length; i++) if(data_names[i].id_3char == code) return data_names[i].name;
+}
+
+function getNameFromSitc(code){
+    for(var i = 0; i < sitc.length; i++){
+        if(sitc[i].code == code){
+          return sitc[i].description;
+        }
+    }
 }
 
 function gen_vis() {   
@@ -307,6 +318,21 @@ var margin = {top: 20, right: 100, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+// load data
+  var yeardata = [];
+  dataset.forEach(function(d) {
+        if(d.year == 2013){
+          yeardata.push(d);
+        }
+  });
+  var data = [];
+  yeardata.forEach(function(d) {
+        if(d.sitc < 25){
+          data.push(d);
+        }
+  });
+  // change string (from CSV) into number format
+
 /* 
  * value accessor - returns the value to encode for a given data object.
  * scale - maps value to a visual display encoding, such as a pixel position.
@@ -315,16 +341,26 @@ var margin = {top: 20, right: 100, bottom: 30, left: 40},
  */ 
 
 // setup x 
-var xValue = function(d) { return d.sitc;}, // data -> value
-    xScale = d3.scale.linear().range([0, width]), // value -> display
+var xValue = function(d) { return d.sitc_string;}, // data -> value
+    xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
-    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+    xAxis = d3.svg.axis().scale(xScale)
+    //.ticks(10)
+    .tickFormat(function (d) {
+        return getNameFromSitc(d);
+    })
+    .orient("bottom");
 
 // setup y
 var yValue = function(d) { return d.import_val;}, // data -> value
     yScale = d3.scale.linear().range([height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
-    yAxis = d3.svg.axis().scale(yScale).orient("left");
+    yAxis = d3.svg.axis().scale(yScale)
+    .tickFormat(function (d) {
+        var prefix = d3.formatPrefix(d);
+        return prefix.scale(d);// + prefix.symbol;
+    })
+    .orient("left");
 
 // setup fill color
 var cValue = function(d) { return d.sitc;},
@@ -342,23 +378,8 @@ var tooltip = d3.select("#third_chart").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-// load data
-  var yeardata = [];
-  dataset.forEach(function(d) {
-        if(d.year == 2013){
-          yeardata.push(d);
-        }
-  });
-  var data = [];
-  yeardata.forEach(function(d) {
-        if(d.sitc < 10){
-          data.push(d);
-        }
-  });
-  // change string (from CSV) into number format
-
   // don't want dots overlapping axis, so add in buffer to data domain
-  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+  //xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
   // x-axis
@@ -395,15 +416,19 @@ var tooltip = d3.select("#third_chart").append("div")
       .attr("cy", yMap)
       .style("fill", function(d) { return color(cValue(d));}) 
       .on("mouseover", function(d) {
+        d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+        .style({'stroke-opacity':1,'stroke':'#F00'});
+
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html( getNameFromCode(d["origin"]) + "<br/> (" + xValue(d) 
-          + ", " + yValue(d) + ")")
+          tooltip.html( getNameFromCode(d["origin"]) + "<br/>" + getNameFromSitc(d.sitc_string) + "<br/>" +(yValue(d)/1000000000).toFixed(1)+" billions")
                .style("left", (d3.event.pageX + 5) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
       })
       .on("mouseout", function(d) {
+        d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+        .style({'stroke-opacity':0,'stroke':'#F00'});
           tooltip.transition()
                .duration(500)
                .style("opacity", 0);
@@ -430,4 +455,101 @@ var tooltip = d3.select("#third_chart").append("div")
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d;});*/
+}
+
+function genChord(){
+  // From http://mkweb.bcgsc.ca/circos/guide/tables/
+var matrix = [
+[0,100,200, 44, 20, 220, 30],
+[0,0,200, 44, 20, 220, 30],
+[0,100,0, 44, 20, 220, 30],
+[0,100,200, 0, 20, 220, 30],
+[0,100,23, 44, 0, 220, 30],
+[91,190,200, 44, 20, 0, 30],
+[0,100,200, 44, 20, 220, 0],
+];
+
+var chord = d3.layout.chord()
+    .padding(.05)
+    .sortSubgroups(d3.descending)
+    .matrix(matrix);
+
+var width = 960,
+    height = 500,
+    innerRadius = Math.min(width, height) * .45,
+    outerRadius = innerRadius * 1.1;
+
+var fill = d3.scale.ordinal()
+    .domain(d3.range(4))
+    .range(["#957244"]);
+
+var svg = d3.select("#the_chart").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("g").selectAll("path")
+    .data(chord.groups)
+  .enter().append("path")
+    .style("fill", function(d) { return fill(d.index); })
+    .style("stroke", function(d) { return fill(d.index); })
+    .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+    .on("mouseover", fade(.1))
+    .on("mouseout", fade(1));
+
+var ticks = svg.append("g").selectAll("g")
+    .data(chord.groups)
+  .enter().append("g").selectAll("g")
+    .data(groupTicks)
+  .enter().append("g")
+    .attr("transform", function(d) {
+      return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+          + "translate(" + outerRadius + ",0)";
+    });
+
+ticks.append("line")
+    .attr("x1", 1)
+    .attr("y1", 0)
+    .attr("x2", 5)
+    .attr("y2", 0)
+    .style("stroke", "#000");
+
+ticks.append("text")
+    .attr("x", 8)
+    .attr("dy", ".35em")
+    .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+    .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+    .text(function(d) { return d.label; });
+
+
+svg.append("g")
+    .attr("class", "chord")
+  .selectAll("path")
+    .data(chord.chords)
+  .enter().append("path")
+    .attr("d", d3.svg.chord().radius(innerRadius))
+    .style("fill", function(d) { return "rgb(" + d.target.value + ",0,0)"; })
+    .style("opacity", 1);
+}
+
+// Returns an array of tick angles and labels, given a group.
+function groupTicks(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(0, d.value, 1000).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label: i % 5 ? null : v / 1000 + "k"
+    };
+  });
+}
+
+// Returns an event handler for fading a given chord group.
+function fade(opacity) {
+  return function(g, i) {
+    svg.selectAll(".chord path")
+        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+        .style("opacity", opacity);
+  };
 }
