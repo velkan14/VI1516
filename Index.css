@@ -47,6 +47,14 @@ h1 {
   stroke-width: 1.5px;
 }
 
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  font-family: calibri, sans serif;
+  pointer-events: none;
+}
+
 .import{
   fill: #ff4d4d;
   stroke: #e60000;
