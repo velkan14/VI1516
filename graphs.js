@@ -3,11 +3,11 @@ var data_sitcut;
 var data_names;
 var sitc;
 var data_sitc;
-d3.tsv("country_names.tsv", function (data2) {
+d3.tsv("data/country_names.tsv", function (data2) {
         data_names = data2;
 })
 
-d3.tsv("SITC4_english_structure.tsv", function (data){
+d3.tsv("data/SITC4_english_structure.tsv", function (data){
     sitc = data;
     var array = [];
     var root = {"parent":null, "children": array,"value": "Products", "depth": 0};
@@ -28,7 +28,7 @@ d3.tsv("SITC4_english_structure.tsv", function (data){
     data_sitc = root;
 })
 
-d3.tsv("year_origin_sitc2_final.tsv", function (data) {
+d3.tsv("data/year_origin_sitc2_final.tsv", function (data) {
     dataset = data;
 
     data_sitcut = d3.nest()
@@ -71,7 +71,7 @@ d3.tsv("year_origin_sitc2_final.tsv", function (data) {
         d["sitc"] = +d["sitc"];
     });
     //gen_vis();
-    //gen_tree();
+    gen_tree();
     genChord();
     genScatterPlot();
 })
@@ -91,7 +91,7 @@ function getNameFromSitc(code){
     }
 }
 
-function gen_vis() {   
+function gen_vis() {
 	var w = 800;
     var h = 400;
     var padding=60;
@@ -99,7 +99,7 @@ function gen_vis() {
     var ORIGIN_NUMBER = 0;
 
     var drop = d3.select("#country");
-                
+
     drop.selectAll("country")
     .data(data_sitcut)
     .enter().append("option")
@@ -128,7 +128,7 @@ function gen_vis() {
     .attr("width",function(d) {
       return xscale(d.export*100/data_sitcut[ORIGIN_NUMBER].max_exports)*10;})
     .attr("height", 20)
-    .attr("fill","green")	     
+    .attr("fill","green")
     .attr("x",function(d) {
       return 400;})
     .attr("y",function(d, i) {
@@ -138,12 +138,12 @@ function gen_vis() {
 
     svg.selectAll(".rect")
     .data(data_sitcut[ORIGIN_NUMBER].values)
-    .enter().append("rect")      
+    .enter().append("rect")
     .attr("class", "import")
     .attr("width",function(d) {
       return xscale(d.import*100/data_sitcut[ORIGIN_NUMBER].max_imports)*10;})
     .attr("height", 20)
-    .attr("fill","red")       
+    .attr("fill","red")
     .attr("x",function(d) {
       return 400-xscale(d.import*100/data_sitcut[ORIGIN_NUMBER].max_imports)*10;})
     .attr("y",function(d, i) {
@@ -153,9 +153,9 @@ function gen_vis() {
 
     var yaxis = d3.svg.axis()
     .scale(hscale)
-    .orient("left");	                  
+    .orient("left");
 
-    svg.append("g")	
+    svg.append("g")
     .attr("transform","translate(400,0)")
     .attr("class","axis")
     .call(yaxis);
@@ -163,7 +163,7 @@ function gen_vis() {
 
     /***************LIST*****************/
     d3.selectAll("#country").on("change",function(){
-        
+
         var e = document.getElementById("country");
         ORIGIN_NUMBER=e.selectedIndex;
 
@@ -183,7 +183,7 @@ function gen_vis() {
         .duration(1000)
         .attr("width",function(d) {
           return xscale(d.import*100/data_sitcut[ORIGIN_NUMBER].max_imports)*10;})
-        .attr("fill","red")       
+        .attr("fill","red")
         .attr("x",function(d) {
           return 400-xscale(d.import*100/data_sitcut[ORIGIN_NUMBER].max_imports)*10;})
         .select("title")
@@ -193,14 +193,15 @@ function gen_vis() {
 
 
 function gen_tree() {
-    var w = 600;
-    var h = 600;
+    var w = 380;
+    var h = 250;
     var i = 0;
     var duration = 750;
-    var svg = d3.select("#second_chart")
+    var svg = d3.select("#tabs-2")
     .append("svg")
-    .attr("width",1000)
-    .attr("height",1000);
+    .attr("width",w)
+    .attr("height",h);
+    console.log(svg);
 
     var tree = d3.layout.tree().size([w/2,h/2]);
     var diagonal = d3.svg.diagonal().projection(function projection(d) { return [d.y, d.x];});
@@ -315,8 +316,8 @@ function gen_tree() {
 
 function genScatterPlot(){
 var margin = {top: 20, right: 100, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 650 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // load data
   var yeardata = [];
@@ -327,20 +328,20 @@ var margin = {top: 20, right: 100, bottom: 30, left: 40},
   });
   var data = [];
   yeardata.forEach(function(d) {
-        if(d.sitc < 25){
+        if(d.sitc < 10){
           data.push(d);
         }
   });
   // change string (from CSV) into number format
 
-/* 
+/*
  * value accessor - returns the value to encode for a given data object.
  * scale - maps value to a visual display encoding, such as a pixel position.
  * map function - maps from data value to display value
  * axis - sets up axis
- */ 
+ */
 
-// setup x 
+// setup x
 var xValue = function(d) { return d.sitc_string;}, // data -> value
     xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
@@ -367,14 +368,14 @@ var cValue = function(d) { return d.sitc;},
     color = d3.scale.category10();
 
 // add the graph canvas to the body of the webpage
-var svg = d3.select("#third_chart").append("svg")
+var svg = d3.select("#vistabs-2").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("#third_chart").append("div")
+var tooltip = d3.select("#vistabs-2").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -414,7 +415,7 @@ var tooltip = d3.select("#third_chart").append("div")
       .attr("r", 3.5)
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", function(d) { return color(cValue(d));}) 
+      .style("fill", function(d) { return color(cValue(d));})
       .on("mouseover", function(d) {
         d3.select(this.parentNode.appendChild(this)).transition().duration(300)
         .style({'stroke-opacity':1,'stroke':'#F00'});
@@ -474,8 +475,8 @@ var chord = d3.layout.chord()
     .sortSubgroups(d3.descending)
     .matrix(matrix);
 
-var width = 960,
-    height = 500,
+var width = 380,
+    height = 300,
     innerRadius = Math.min(width, height) * .45,
     outerRadius = innerRadius * 1.1;
 
@@ -483,7 +484,7 @@ var fill = d3.scale.ordinal()
     .domain(d3.range(4))
     .range(["#957244"]);
 
-var svg = d3.select("#the_chart").append("svg")
+var svg = d3.select("#tabs-1").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
