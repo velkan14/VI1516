@@ -305,17 +305,19 @@ aside {
 }
 
 .ui-tabs-vertical {
-  height: 33em; width: 44em;
+  height: 33em; width: 44em; 
 }
 .ui-tabs-vertical .ui-tabs-nav {
-  padding: .2em .1em .2em .2em; float: left; width: 7em;
+  padding: .2em .1em .2em .2em; float: left; width: 7em; 
 }
 .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
   .ui-tabs-vertical .ui-tabs-nav li a { display:block; height:1em }
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 5px; }
   .ui-tabs-vertical .ui-tabs-panel { padding: .2em; float: right; width: 40em; }
 
-
+/* .FullscreenChord {
+	position: absolute; top: 0; left: 0;
+} */
 
 footer {
     background-color:black;

@@ -207,7 +207,7 @@ function gen_tree() {
     var diagonal = d3.svg.diagonal().projection(function projection(d) { return [d.y, d.x];});
 
     var root = data_sitc;
-    root.x0 = h / 2;
+    root.x0 = h/2;
     root.y0 = 0;
 
     update(root);
@@ -328,7 +328,7 @@ var margin = {top: 20, right: 100, bottom: 30, left: 40},
   });
   var data = [];
   yeardata.forEach(function(d) {
-        if(d.sitc < 10){
+        if(d.sitc < 3){
           data.push(d);
         }
   });
@@ -343,7 +343,7 @@ var margin = {top: 20, right: 100, bottom: 30, left: 40},
 
 // setup x
 var xValue = function(d) { return d.sitc_string;}, // data -> value
-    xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([0, width]), // value -> display
+    xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([20, width-10]), // value -> display CHANGED
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.svg.axis().scale(xScale)
     //.ticks(10)
@@ -365,7 +365,9 @@ var yValue = function(d) { return d.import_val;}, // data -> value
 
 // setup fill color
 var cValue = function(d) { return d.sitc;},
-    color = d3.scale.category10();
+    color = d3.scale.ordinal()
+  .domain(["Food and live animals", "Beverages and tobacco", "Crude materials"])
+  .range(["#3ADF00", "#FE9A2E" , "#8A4B08"]);
 
 // add the graph canvas to the body of the webpage
 var svg = d3.select("#vistabs-2").append("svg")
