@@ -14,12 +14,13 @@ body {
     height: 590px;
     width: 35%;
     float:left;
-    padding:10px;
+    padding:5px;
 }
 
 #CategoryButtonContainer {
 	font: 12px Arial;
 	padding: 5px;
+	padding-top: 1px;
 	height: 210px;
 	width: 25px;
 	float:left;
@@ -111,18 +112,18 @@ body {
   border-radius: 10px;
   border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #A4A4A4,  #585858);
+  background: -ms-linear-gradient(top,  #A4A4A4,  #585858);
+  background: -webkit-gradient(linear, left top, left bottom, from(#A4A4A4), to(#585858));
+  background: -moz-linear-gradient(top,  #A4A4A4,  #585858);
 }
 .Cat3_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #585858,  #A4A4A4);
+  background: -ms-linear-gradient(top,  #585858,  #A4A4A4);
+  background: -webkit-gradient(linear, left top, left bottom, from(#585858), to(#A4A4A4));
+  background: -moz-linear-gradient(top,  #585858,  #A4A4A4);
 }
 
 .Cat4_Btn {
@@ -136,18 +137,18 @@ body {
   border-radius: 10px;
   border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #F5F6CE,  #FFFF00);
+  background: -ms-linear-gradient(top,  #F5F6CE,  #FFFF00);
+  background: -webkit-gradient(linear, left top, left bottom, from(#F5F6CE), to(#FFFF00));
+  background: -moz-linear-gradient(top,  #F5F6CE,  #FFFF00);
 }
 .Cat4_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #FFFF00,  #F5F6CE);
+  background: -ms-linear-gradient(top,  #FFFF00,  #F5F6CE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFF00), to(#F5F6CE));
+  background: -moz-linear-gradient(top,  #FFFF00,  #F5F6CE);
 }
 
 .Cat5_Btn {
@@ -161,18 +162,18 @@ body {
   border-radius: 10px;
   border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #BE81F7,  #7401DF);
+  background: -ms-linear-gradient(top,  #BE81F7,  #7401DF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#BE81F7), to(#7401DF));
+  background: -moz-linear-gradient(top,  #BE81F7,  #7401DF);
 }
 .Cat5_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #7401DF,  #BE81F7);
+  background: -ms-linear-gradient(top,  #7401DF,  #BE81F7);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7401DF), to(#BE81F7));
+  background: -moz-linear-gradient(top,  #7401DF,  #BE81F7);
 }
 
 .Cat6_Btn {
@@ -186,18 +187,18 @@ body {
   border-radius: 10px;
   border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #2ECCFA,  #0489B1);
+  background: -ms-linear-gradient(top,  #2ECCFA,  #0489B1);
+  background: -webkit-gradient(linear, left top, left bottom, from(#2ECCFA), to(#0489B1));
+  background: -moz-linear-gradient(top,  #2ECCFA,  #0489B1);
 }
 .Cat6_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #0489B1,  #2ECCFA);
+  background: -ms-linear-gradient(top,  #0489B1,  #2ECCFA);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0489B1), to(#2ECCFA));
+  background: -moz-linear-gradient(top,  #0489B1,  #2ECCFA);
 }
 
 .Cat7_Btn {
@@ -211,23 +212,23 @@ body {
   border-radius: 10px;
   border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #FE2E2E,  #B40404);
+  background: -ms-linear-gradient(top,  #FE2E2E,  #B40404);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FE2E2E), to(#B40404));
+  background: -moz-linear-gradient(top,  #FE2E2E,  #B40404);
 }
 .Cat7_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #B40404,  #FE2E2E);
+  background: -ms-linear-gradient(top,  #B40404,  #FE2E2E);
+  background: -webkit-gradient(linear, left top, left bottom, from(#B40404), to(#FE2E2E));
+  background: -moz-linear-gradient(top,  #B40404,  #FE2E2E);
 }
 
 .Cat8_Btn {
   font-family: arial;
-  color: #14396A !important;
+  color: white !important;
     font-size: 10px;
   box-shadow: 1px 1px 3px #525354;
   padding: 3px 7px;
@@ -236,18 +237,18 @@ body {
   border-radius: 10px;
    border: 2px solid #000000;
   background: #EE0000;
-  background: linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
-  background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
+  background: linear-gradient(top,  #0431B4,  #0B0B61);
+  background: -ms-linear-gradient(top,  #0431B4,  #0B0B61);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0431B4), to(#0B0B61));
+  background: -moz-linear-gradient(top,  #0431B4,  #0B0B61);
 }
 .Cat8_Btn:hover {
   color: #14396A !important;
   background: #468CCF;
-  background: linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
-  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
-  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: linear-gradient(top,  #0B0B61,  #0431B4);
+  background: -ms-linear-gradient(top,  #0B0B61,  #0431B4);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0B0B61), to(#0431B4));
+  background: -moz-linear-gradient(top,  #0B0B61,  #0431B4);
 }
 
 .AllCat_Btn {
@@ -283,13 +284,14 @@ body {
 
 	font: 12px Arial;
 	padding: 5px;
+	padding-top: 30px;
 	height: 20px;
 	width: 95%;
 }
 
 #CollapsableMenuContainer {
   font: 12px Arial;
-  padding-top: 30px;
+  padding-top: 10px;
   height: 55%;
   width: 95%;
 }
