@@ -462,15 +462,15 @@ var tooltip = d3.select("body").append("div")
 
 function genChord(){
 
-    var margin      = {top: -50, right: 10, bottom: 10, left: -500},
-        width       = 960 - margin.left - margin.right,
-        height      = 600 - margin.top  - margin.bottom,
+    var margin      = {top: -50, right: 10, bottom: 10, left: -50},
+        width       = 450 - margin.left - margin.right,
+        height      = 450 - margin.top  - margin.bottom,
         innerRadius = Math.min(width, height) * .25,
         outerRadius = innerRadius * 1.1;
 
     var svg = d3.select("#tabs-1").append("svg")
-        .attr("width",  500)
-        .attr("height", 500)
+        .attr("width",  450)
+        .attr("height", 450)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .append("g")
@@ -539,6 +539,11 @@ function genChord(){
                     return d.source.index != i && d.target.index != i;
                   })
             })
+            .on("mouseout", function(d, i){
+                chords.classed("fade", function(d){
+                    return d.source.index == i && d.target.index == i;
+                  })
+            })
             ;
 
 
@@ -564,8 +569,8 @@ function genChord(){
             .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
             .attr("transform", function(d){
 
-                //rotate each label around the circle           
-                return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")" + 
+                //rotate each label around the circle
+                return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")" +
                        "translate(" + (outerRadius + 10) + ")" +
                        (d.angle > Math.PI ? "rotate(180)" : "");
 
