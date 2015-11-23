@@ -64,3 +64,16 @@ h1 {
 
 }
 
+    path{
+        stroke: black;
+        stroke-width: .25px;
+        fill-opacity: .67;
+    }
+    path.fade{
+        fill-opacity: .1;
+    }
+
+    path.show{
+        fill-opacity: .67;
+    }
+
