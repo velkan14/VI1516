@@ -50,8 +50,15 @@ h1 {
   position: absolute;
   width: 200px;
   height: 28px;
-  font-family: calibri, sans serif;
+  font: 12px sans-serif;
   pointer-events: none;
+  text-align: center;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 6px;
+  height: 45px;
+  width: 70px;
+  padding: 2px;
 }
 
 .import{

@@ -487,7 +487,7 @@ function genChord(){
 
     d3.csv("data/trade.csv", function(d){
 
-        
+
         //file name
         var firstColumn = "loo";
 
@@ -544,27 +544,19 @@ function genChord(){
                 chords.classed("fade", function(d){
                     return d.source.index != i && d.target.index != i;
                   })
-                div1.transition()        
-                .duration(200)      
-                .style("opacity", .9); 
+                div1.transition()
+                .duration(200)
+                .style("opacity", .9);
                 console.log(d.value)
-                div1.html("<text> Valor de exportações:<br>" + d3.round(d.value) + "</text>")  
-                .style("left", (d3.event.pageX) + "px")     
+                div1.html("<text> Valor de exportações:<br>" + d3.round(d.value) + "</text>")
+                .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
                 .style("opacity", 1)
-                .style("text-align", "center")
-                .style("font", "12px sans-serif")
-                .style("background", "lightsteelblue")
-                .style("border", "0px")
-                .style("border-radius", "8px")
-                .style("height", "45px")
-                .style("width", "70px")
-                .style("padding", "2px")
             })
-            .on("mouseout", function(d) {       
-            div1.transition()        
-                .duration(500)      
-                .style("opacity", 0)});         
+            .on("mouseout", function(d) {
+            div1.transition()
+                .duration(500)
+                .style("opacity", 0)});
 
 
         var chords = svg.append("g")
