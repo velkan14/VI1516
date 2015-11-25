@@ -458,6 +458,9 @@ var tooltip = d3.select("body").append("div")
       .text(function(d) { return d;});*/
 }
 
+
+
+
 function genChord(){
 
     var margin      = {top: -50, right: 10, bottom: 10, left: -500},
@@ -475,12 +478,15 @@ function genChord(){
         .attr("class", "chordgraph")
         .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 
+    var div1 = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+
     d3.csv("data/trade.csv", function(d){
 
-        /*
-         * IMPORTANT! Specify your first column of data here (see example data)
-         *
-         */
+        
+        //file name
         var firstColumn = "loo";
 
         //store coloumn names
@@ -536,10 +542,28 @@ function genChord(){
                 chords.classed("fade", function(d){
                     return d.source.index != i && d.target.index != i;
                   })
+                div1.transition()        
+                .duration(200)      
+                .style("opacity", .9); 
+                console.log(d.value)
+                div1.html("<text> Valor de exportações:<br>" + d3.round(d.value) + "</text>")  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px")
+                .style("opacity", 1)
+                .style("text-align", "center")
+                .style("font", "12px sans-serif")
+                .style("background", "lightsteelblue")
+                .style("border", "0px")
+                .style("border-radius", "8px")
+                .style("height", "45px")
+                .style("width", "70px")
+                .style("padding", "2px")
+
             })
-            ;
-
-
+            .on("mouseout", function(d) {       
+            div1.transition()        
+                .duration(500)      
+                .style("opacity", 0)});         
 
 
         var chords = svg.append("g")
