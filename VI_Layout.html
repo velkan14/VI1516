@@ -14,12 +14,12 @@
     <script>
       $(function() {
         $( "#tabs" ).tabs({
-          collapsible: true
+          collapsible: false
         });
       });
       $(function() {
         $( "#VisualizationTabs" ).tabs({
-          collapsible: true
+          collapsible: false
         });
       });
 
@@ -27,6 +27,9 @@
         $( "#VisualizationTabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
         $( "#vistabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
       });*/
+	  
+	  <!-- function tryfull() {		$("#tabs-1").addClass("FullscreenChord");} -->
+	  
     </script>
     <script src="lib/d3.v3.min.js" charset="utf-8"></script>
     <script src="graphs.js"></script>
@@ -53,7 +56,7 @@
   			</div>
 
   			<div id= "MapContainer">
-  				<img src="image/MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right">
+  				<img src="image/MainMapExample.png" height="100%" width="85%" style="padding:15px;float:right">
   			</div>
 
   			<div id = "YearSliderContainer">
@@ -70,12 +73,13 @@
     		  </ul>
     		  <div id="tabs-1">
 
-    			<!-- CHORD DIAGRAM GOES HERE <img src="MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right"> -->
+    			<!-- CHORD DIAGRAM GOES HERE  -->
+				<!-- <button id="fullscreen button" onclick="tryfull()">Enlarge</button> -->
 
     		  </div>
     		  <div id="tabs-2">
 
-    			<!-- PRODUCT TREE GOES HERE <img src="MainMapExample.png" height="85%" width="85%" style="padding:15px;float:right"> -->
+    			<!-- PRODUCT TREE GOES HERE-->
 
     		  </div>
     		  <div id="tabs-3">
@@ -87,10 +91,10 @@
 
     <aside class = "left">
     	<div id="VisualizationTabs">
-        <ul>
-          <li><a href="#vistabs-1">By relation</a></li>
+        <ul style="font: 12px Arial">
+          <li><a href="#vistabs-1">By country</a></li>
           <li><a href="#vistabs-2">By product</a></li>
-          <li><a href="#vistabs-3">By country</a></li>
+          <li><a href="#vistabs-3">By correlation</a></li>
         </ul>
         <div id="vistabs"  style="width:36em; height:33em; float:left">
           <div id="vistabs-1" style="height:32em; width:35em">
@@ -103,7 +107,7 @@
     		      <p style="font:20px Arial; text-align:center">Top 5 exported products</p>
     		      <img src="image/fakebar.png" style="width:80%;height:30%;padding:20px;padding-left:45px;float:left"></img>
     		      <div class="ui form">
-                <div class="inline fields" style="padding:20px">
+                <div class="inline fields" style="padding:20px; font: 14px Arial">
                   <label>Select one:</label><br>
                   <div class="field">
                     <div class="ui radio checkbox">
@@ -134,7 +138,21 @@
     		    </div>
           </div>
           <div id="vistabs-2" style="height:32em; width:35em">
-          <!-- PUT SCATTERPLOT HERE -->
+           <div class="inline fields" style="padding:20px; font: 14px Arial">
+                  <label>Select one:</label><br>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="frequency" checked="checked">
+                      <label>Import</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="frequency">
+                      <label>Export</label>
+                    </div>
+                  </div>
+			</div>
           </div>
           <div id="vistabs-3" style="height:32em; width:35em">
             <img src="image/fakedual.png" height="80%" width="80%"></img>
@@ -142,7 +160,7 @@
         </div>
       </div>
     </aside>
-    
+
     <footer>
     Grupo 9 - Instituto Superior Técnico
     </footer>
