@@ -193,11 +193,11 @@ function gen_vis() {
 
 
 function gen_tree() {
-    var w = 380;
-    var h = 250;
+    var w = 700;
+    var h = 450;
     var i = 0;
     var duration = 750;
-    var svg = d3.select("#tabs-2")
+    var svg = d3.select("#leftSide")
     .append("svg")
     .attr("width",w)
     .attr("height",h);

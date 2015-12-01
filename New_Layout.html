@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Animated Hexagon Menu Demo</title>
+<script src="lib/d3.v3.min.js"></script>
+<script src="graphs.js"></script>
+<link rel="stylesheet" href="graphs.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div id="container">
+    <div hidden id="leftSide" style="width:49%; height:95%; float:left;">
+
+    </div>
+
+    <div class="nav" id="hexNav">
+      <div id="menuBtn"> 
+    	<svg viewbox="0 0 100 100">
+        <polygon points="50 2 7 26 7 74 50 98 93 74 93 26" fill="none" stroke-width="4" stroke="#585247" stroke-dasharray="0,0,300"/>
+        </svg> <span></span> </div>
+      <ul id="hex">
+        <li class="tr">
+          <div class="clip"><a href="#" class="content"> 
+    	  <img src="http://c1.quickcachr.fotos.sapo.pt/i/Ba411ad50/14158343_uaPQv.jpeg" </>
+            <h2 class="title" style="font-size:16px">Country</h2>
+            <p>specific visualizations</p>
+            </a></div>
+        </li>
+        <li class="tr">
+          <div class="clip"><a href="#" class="content"> 
+    	  <img src="http://www.photocase.com/stock-photos/210123-stock-photo-hand-food-farmer-harvest-black-white-photo-monochrome.jpg" alt="" />
+            <h2 class="title" style="font-size:16px">Product</h2>
+            <p>specific visualizations</p>
+            </a></div>
+        </li>
+        <li class="tr">
+          <div class="clip"><a href="#" class="content"> 
+    	  <img src="https://1yesbut.files.wordpress.com/2012/01/dsc_3175-copy.jpg?w=655&h=456" alt="" />
+            <h2 class="title" style="font-size:16px">Rank</h2>
+            <p>specific visualizations</p>
+            </a></div>
+        </li>
+        <li class="tr">
+          <div class="clip" onclick="showTree()"><a href="#" class="content"> 
+    	  <img src="http://www.gracechurchmemphis.com/wp-content/uploads/2011/09/BW-Tree-540x330.jpg" />
+            <h2 class="title" style="font-size:16px">Tree</h2>
+            <p>Choose a product</p>
+            </a></div>
+        </li>
+        <li class="tr">
+          <div class="clip"><a href="#" class="content"> 
+    	  <img src="https://c2.staticflickr.com/8/7112/7832787730_1ecec579ea_b.jpg" alt="" />
+            <h2 class="title" style="font-size:16px">Trade</h2>
+            <p>Partners</p>
+            </a></div>
+        </li>
+        <li class="tr">
+          <div class="clip"><a href="#" class="content"> 
+              <img src="https://41.media.tumblr.com/a8a142ca383aaf527ffce1d47003fec0/tumblr_nxu6tzFtZW1sorjiao1_500.jpg"/>
+            <h2 class="title" style="font-size:16px">World Map</h2>
+            <p>Choose a country</p>
+            </a></div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div id="rightSide" style="width:49%; height:95%; float:left;"></div>
+
+</div>
+<script>
+var hexNav = document.getElementById('hexNav');
+
+document.getElementById('menuBtn').onclick = function() {
+    var className = ' ' + hexNav.className + ' ';
+    if ( ~className.indexOf(' active ') ) {
+        hexNav.className = className.replace(' active ', ' ');
+    } else {
+        hexNav.className += ' active';
+    }              
+}
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script>
+function showTree() {
+if (document.getElementById("leftSide").hidden == true){
+  document.getElementById("leftSide").hidden = false;}
+else{
+  document.getElementById("leftSide").hidden = true;
+}}
+</script>
+
+</body>
+</html>

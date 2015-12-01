@@ -3,6 +3,7 @@ h1 {
    font-family: calibri, arial, sans serif;
 }
 
+
 .axis path, .axis line {
     fill: none;
     stroke: black;
@@ -12,6 +13,7 @@ h1 {
 .axis text {
    font-family: calibri, sans serif;
    font-size: 10pt;
+
 }
 
 .btn {
@@ -34,6 +36,8 @@ h1 {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
+  transform: translate(12px,0);
+
 }
 
 .node {
@@ -42,8 +46,10 @@ h1 {
 
 .link {
   fill: none;
-  stroke: #ccc;
+  stroke: #000;
   stroke-width: 1.5px;
+  transform: translate(12px,0);
+
 }
 
 .tooltip {
