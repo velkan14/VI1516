@@ -3,9 +3,12 @@
 
 <head>
 <meta charset="utf-8">
-<title>Animated Hexagon Menu Demo</title>
+<title>World Economy</title>
 <script src="lib/d3.v3.min.js"></script>
 <script src="graphs.js"></script>
+<link rel="stylesheet" href="slider/css/ion.rangeSlider.css">
+<link rel="stylesheet" href="slider/css/ion.rangeSlider.skinFlat.css">
+<link rel="stylesheet" href="slider/css/normalize.css">
 <link rel="stylesheet" href="graphs.css">
 <link rel="stylesheet" href="style.css">
 
@@ -18,6 +21,13 @@
     </div>
 
     <div class="nav" id="hexNav">
+	
+			<div id="slider" style="position: relative; padding: 20px; padding-bottom:40px">
+			<div>
+				<input type="text" id="range" value="" name="range" />
+			</div> 
+			</div>
+	
       <div id="menuBtn"> 
     	<svg viewbox="0 0 100 100">
         <polygon points="50 2 7 26 7 74 50 98 93 74 93 26" fill="none" stroke-width="4" stroke="#585247" stroke-dasharray="0,0,300"/>
@@ -66,10 +76,15 @@
             </a></div>
         </li>
       </ul>
+	  
+	  
+	  
     </div>
 
 
-    <div id="rightSide" style="width:49%; height:95%; float:left;"></div>
+    <div id="rightSide" style="width:49%; height:95%; float:left;">
+	
+	</div>
 
 </div>
 <script>
@@ -106,6 +121,29 @@ else{
   document.getElementById("leftSide").hidden = true;
 }}
 </script>
+
+<script src="slider/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="slider/js/ion-rangeSlider/ion.rangeSlider.js"></script>
+
+<script>
+$(function () {
+	$("#range").ionRangeSlider({
+	     hide_min_max: true,
+            keyboard: true,
+            min: 1993,
+            max: 2013,
+            from: 1993,
+            to: 2013,
+            type: 'double',
+            step: 1,
+            drag_interval: true,
+            grid: true,
+            grid_num: 20
+	});
+});
+
+</script>
+
 
 </body>
 </html>
