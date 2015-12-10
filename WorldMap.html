@@ -8,9 +8,8 @@
   <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
   
   
-<div id="globe" style="position: absolute; width: 500px; height: 500px; background-color: black; border-radius: 500px">   
-    <div id="container1" style="position: relative; width: 100%; height: 100% "></div>
- </div>
+<div id="globe" style="position: absolute; width: 500px; height: 500px; background-color: black; border-radius: 500px; margin-left:382px; margin-top:28px"> </div>
+ <div id="container1" style="position: relative; width: 100%; height: 100%;"></div>
      
      <script>
        //basic map config with custom fills, mercator projection
@@ -18,24 +17,29 @@
         scope: 'world',
         element: document.getElementById('container1'),
         projection: 'orthographic',
-        height: 450,
+        height: 500,
+		
         fills: {
 
-          defaultFill: 'darkgray',
+          defaultFill: 'gray',
         },
         projectionConfig: {
-          rotation: [30,-10]
+          rotation: [10,-30]
         },
+		
+		 
+		 
          geographyConfig: {
           hideAntarctica: true,
           borderWidth: 0.5,
-          borderColor: '#FDFDFD',
+          borderColor: '#5B5B5B',
           popupTemplate: function(geography, data) { //this function should just return a string
             return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
-        },
+
+		},
          popupOnHover: true, //disable the popup while hovering
         highlightOnHover: true,
-        highlightFillColor: 'gray',
+        highlightFillColor: 'darkgray',
         highlightBorderColor: 'yellow',
         highlightBorderWidth: 2
     },
@@ -53,7 +57,7 @@
         },
 
       })
-      
+      map.graticule();
       
       //sample of the arc plugin
       map.arc([
