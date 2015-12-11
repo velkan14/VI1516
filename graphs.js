@@ -201,9 +201,8 @@ function gen_tree() {
     .append("svg")
     .attr("width",w)
     .attr("height",h);
-    console.log(svg);
 
-    var tree = d3.layout.tree().size([w/2,h/2]);
+    var tree = d3.layout.tree().size([w, h]);
     var diagonal = d3.svg.diagonal().projection(function projection(d) { return [d.y, d.x];});
 
     var root = data_sitc;
