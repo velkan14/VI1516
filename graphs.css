@@ -1,24 +1,20 @@
 h1 {
    font-size: 18pt;
-   font-family: calibri, arial, sans serif;
+   font-family: arial, calibri;
 }
 
 
 .axis path, .axis line {
     fill: none;
     stroke: black;
-
 }
 
 .axis text {
-   font-family: calibri, sans serif;
    font-size: 10pt;
-
 }
 
 .btn {
 	width: 100px;
-	font-family: calibri, sans serif;
 	padding: 10px;
 	border: solid 1px black;
 	color: white;
@@ -32,38 +28,34 @@ h1 {
 	background-color: blue;
 }
 
+.node text {
+  font-size: 8pt;
+}
 .node circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
   transform: translate(12px,0);
-
 }
 
-.node {
-  font: 10px sans-serif;
-}
 
 .link {
   fill: none;
-  stroke: #000;
+  stroke: gray;
   stroke-width: 1.5px;
   transform: translate(12px,0);
-
 }
 
 .tooltip {
   position: absolute;
-  width: 200px;
-  height: 28px;
-  font: 12px sans-serif;
+  width: 150px;
+  height: 45px;
+  font-size: 12px;
   pointer-events: none;
   text-align: center;
   background: lightsteelblue;
   border: 0px;
   border-radius: 6px;
-  height: 45px;
-  width: 70px;
   padding: 2px;
 }
 

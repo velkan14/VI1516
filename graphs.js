@@ -3,6 +3,7 @@ var data_sitcut;
 var data_names;
 var sitc;
 var data_sitc;
+
 d3.tsv("data/country_names.tsv", function (data2) {
         data_names = data2;
 })
@@ -193,8 +194,8 @@ function gen_vis() {
 
 
 function gen_tree() {
-    var w = 700;
-    var h = 450;
+    var w = 600;
+    var h = 600;
     var i = 0;
     var duration = 750;
     var svg = d3.select("#leftSide")
@@ -202,13 +203,18 @@ function gen_tree() {
     .attr("width",w)
     .attr("height",h);
 
+    // add the tooltip area to the webpage
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     var tree = d3.layout.tree().size([w, h]);
     var diagonal = d3.svg.diagonal().projection(function projection(d) { return [d.y, d.x];});
 
     var root = data_sitc;
     root.x0 = h/2;
     root.y0 = 0;
-
+    root.children.forEach(closeAll);
     update(root);
 
     function update(source) {
@@ -228,7 +234,20 @@ function gen_tree() {
       var nodeEnter = node.enter().append("g")
           .attr("class", "node")
           .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-          .on("click", click);
+          .on("click", click)
+          .on("mouseover", function(d){
+              tooltip.transition()
+                 .duration(200)
+                 .style("opacity", .9);
+              tooltip.html(d.value)
+                   .style("left", (d3.event.pageX + 5) + "px")
+                   .style("top", (d3.event.pageY - 28) + "px");})
+          .on("mouseout", function(d) {
+                       tooltip.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                   })
+          ;
 
       nodeEnter.append("circle")
           .attr("r", 1e-6)
@@ -238,9 +257,8 @@ function gen_tree() {
           .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
           .attr("dy", ".35em")
           .attr("dx", "2.5em")
-          //.attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
           .attr("text-anchor", "start")
-          .text(function(d) { return d.value; })
+          .text(function(d) { var s = d.value; if(s.length > 30)return s.substring(0, 30) + "..."; else return s; })
           .style("fill-opacity", 1e-6);
 
       // Transition nodes to their new position.
@@ -303,13 +321,34 @@ function gen_tree() {
     // Toggle children on click.
     function click(d) {
       if (d.children) {
+        //fechar
         d._children = d.children;
         d.children = null;
       } else {
+        //abrir
         d.children = d._children;
         d._children = null;
       }
+      if(d.parent) d.parent.children.forEach(function(n,i,a)
+      {
+        if(n != d)
+        if (n.children) {
+          //fechar
+          n._children = n.children;
+          n.children = null;
+        }
+      });
       update(d);
+    }
+
+    function closeAll(d, i, a){
+      if(i != 0)
+      if (d.children) {
+        //fechar
+        d._children = d.children;
+        d.children = null;
+      }
+      //update(d);
     }
 }
 
@@ -374,11 +413,6 @@ var svg = d3.select("#vistabs-2").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-// add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
 
   // don't want dots overlapping axis, so add in buffer to data domain
   //xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
