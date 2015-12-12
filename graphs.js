@@ -353,6 +353,8 @@ function gen_tree() {
 }
 
 function genScatterPlot(){
+  var i = 0;
+  var duration = 700;
   var margin = {top: 20, right: 100, bottom: 30, left: 40},
       width = 650 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
@@ -362,6 +364,7 @@ function genScatterPlot(){
       .style("opacity", 0);
 
   // load data
+    var dddd = dataset;
     var yeardata = [];
     dataset.forEach(function(d) {
           if(d.year == 2013){
@@ -370,7 +373,7 @@ function genScatterPlot(){
     });
     var data = [];
     yeardata.forEach(function(d) {
-          if(d.sitc < 3){
+          if(d.sitc < width/100){
             data.push(d);
           }
     });
@@ -391,8 +394,8 @@ function genScatterPlot(){
       //.ticks(10)
       .tickFormat(function (d) {
           var s = getNameFromSitc(d);
-          if(s.length > 15){
-            return s.substring(0, 15) + "...";
+          if(s.length > 12){
+            return s.substring(0, 12) + "...";
           }
           else return s;
       })
@@ -450,55 +453,77 @@ function genScatterPlot(){
         .style("text-anchor", "end")
         .text("Imports");
 
-    // draw dots
-    svg.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 3.5)
-        .attr("cx", xMap)
-        .attr("cy", yMap)
-        .style("fill", function(d) { return color(cValue(d));})
-        .on("mouseover", function(d) {
-          d3.select(this.parentNode.appendChild(this)).transition().duration(300)
-          .style({'stroke-opacity':1,'stroke':'#F00'});
+        update(2000,2002);
+        function update(minYear, maxYear){
+          // load data
+            var yeardata = [];
+            dddd.forEach(function(d) {
+                //FIXME: Não sei se deve ser menor ou igual
+                  if(d.year >= minYear && d.year <= maxYear){
+                    yeardata.push(d);
+                  }
+            });
+            var data = [];
+            yeardata.forEach(function(d) {
+              //FIXME: Provavelmente devo receber os nºs de sitc num array
+                  if(d.sitc < width/100){
+                    data.push(d);
+                  }
+            });
+            updateDots(data);
+        }
+      function updateDots(data){
+        // Update the nodes…
+        var dot = svg.selectAll("g.dot")
+            .data(data, function(d) { return d.id || (d.id = ++i); });
 
-            tooltip.transition()
-                 .duration(200)
-                 .style("opacity", .9);
-            tooltip.html( getNameFromCode(d["origin"]) + "<br/>" + getNameFromSitc(d.sitc_string) + "<br/>" +(yValue(d)/1000000000).toFixed(1)+" billions")
-                 .style("left", (d3.event.pageX + 5) + "px")
-                 .style("top", (d3.event.pageY - 28) + "px");
-        })
-        .on("mouseout", function(d) {
-          d3.select(this.parentNode.appendChild(this)).transition().duration(300)
-          .style({'stroke-opacity':0,'stroke':'#F00'});
-            tooltip.transition()
-                 .duration(500)
-                 .style("opacity", 0);
-        });
+        // Enter any new nodes at the parent's previous position.
+        var dotEnter = dot.enter().append("g")
+            .attr("class", "dot")
+            .attr("transform", function(d) { return "translate(" + xMap(d) + "," + height + ")"; })
+            .on("mouseover", function(d) {
+              d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+              .style({'stroke-opacity':1,'stroke':'#F00'});
 
-    // draw legend
-    /*var legend = svg.selectAll(".legend")
-        .data(color.domain())
-      .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+                tooltip.transition()
+                     .duration(200)
+                     .style("opacity", .9);
+                tooltip.html( getNameFromCode(d["origin"]) +"<br/>"+ d.year +"<br/>"+ getNameFromSitc(d.sitc_string) + "<br/>" +(yValue(d)/1000000000).toFixed(1)+" billions")
+                     .style("left", (d3.event.pageX + 5) + "px")
+                     .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+              d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+              .style({'stroke-opacity':0,'stroke':'#F00'});
+                tooltip.transition()
+                     .duration(500)
+                     .style("opacity", 0);
+            })
+            ;
 
-    // draw legend colored rectangles
-    legend.append("rect")
-        .attr("x", width - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
+        dotEnter.append("circle")
+            .attr("r", 1e-6)
+            .style("fill", function(d) { return color(cValue(d));})
 
-    // draw legend text
-    legend.append("text")
-        .attr("x", width - 24)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return d;});*/
+        // Transition nodes to their new position.
+        var dotUpdate = dot.transition()
+            .duration(duration)
+            //.attr("cx", xMap)
+            //.attr("cy", yMap)
+            .attr("transform", function(d) { return "translate(" + xMap(d) + "," + yMap(d) + ")"; });
+
+        dotUpdate.select("circle")
+            .attr("r", 3.5);
+
+        // Transition exiting nodes to the parent's new position.
+        var dotExit = dot.exit().transition()
+            .duration(duration)
+            .attr("transform", function(d) { return "translate(" + xMap(d) + "," + height + ")"; })
+            .remove();
+
+        dotExit.select("circle")
+            .attr("r", 1e-6);
+      }
 }
 
 
@@ -588,7 +613,7 @@ function genChord(){
                 div1.transition()
                 .duration(200)
                 .style("opacity", .9);
-                console.log(d.value)
+
                 div1.html("<text> Valor de exportações:<br>" + d3.round(d.value) + "</text>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
