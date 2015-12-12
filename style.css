@@ -32,8 +32,6 @@ a:visited { text-decoration: none; }
 
 
 #leftSide{
-  padding-top: 50px;
-
 }
 
 .nav {
@@ -102,7 +100,7 @@ a:visited { text-decoration: none; }
 #menuBtn span:before { top: 0; }
 
 #menuBtn span:after { bottom: 0px; }
- @-webkit-keyframes 
+ @-webkit-keyframes
 hexHover {  0% {
  stroke-dasharray: 0, 0, 300;
 }
@@ -113,7 +111,7 @@ hexHover {  0% {
  stroke-dasharray: 300, 20, 300;
 }
 }
- @keyframes 
+ @keyframes
 hexHover {  0% {
  stroke-dasharray: 0, 0, 300;
 }
