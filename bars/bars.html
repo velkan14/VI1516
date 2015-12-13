@@ -40,7 +40,13 @@
 
 .chart .titleRight {
   fill: black;
-  font: 40px sans-serif;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleLeft {
+  fill: black;
+  font: 50px sans-serif;
   text-anchor: end;
 }
 
@@ -75,7 +81,7 @@
 
 
 //Chamada incial á funcao que processa o ficheiro e o apresenta
-bars("prt", 2000);
+bars("prt", 1993);
 
 
 function bars(vis_title, years) 
@@ -767,6 +773,17 @@ function rangeBars(input, years){
 
 data = input[years-1993];
 
+
+
+var m = d3.map();
+
+m.set("ago","Angola"); m.set("bdi","Burundi"); m.set("ben","Benin"); m.set("bfa","Burkina Faso"); m.set("bwa","Botswana"); m.set("caf","Central African Republic"); m.set("civ","Cote d'Ivoire"); m.set("cmr","Cameroon"); m.set("cod","Democratic Republic of the Congo"); m.set("cog","Republic of the Congo"); m.set("com","Comoros"); m.set("cpv","Cape Verde"); m.set("dji","Djibouti"); m.set("dza","Algeria"); m.set("egy","Egypt"); m.set("eri","Eritrea"); m.set("esh","Western Sahara"); m.set("eth","Ethiopia"); m.set("gab","Gabon"); m.set("gha","Ghana"); m.set("gin","Guinea"); m.set("gmb","Gambia"); m.set("gnb","Guinea-Bissau"); m.set("gnq","Equatorial Guinea"); m.set("ken","Kenya"); m.set("lbr","Liberia"); m.set("lby","Libya"); m.set("lso","Lesotho"); m.set("mar","Morocco"); m.set("mdg","Madagascar"); m.set("mli","Mali"); m.set("moz","Mozambique"); m.set("mrt","Mauritania"); m.set("mus","Mauritius"); m.set("mwi","Malawi"); m.set("myt","Mayotte"); m.set("nam","Namibia"); m.set("ner","Niger"); m.set("nga","Nigeria"); m.set("reu","Reunion"); m.set("rwa","Rwanda"); m.set("sdn","Sudan"); m.set("sen","Senegal"); m.set("shn","Saint Helena"); m.set("sle","Sierra Leone"); m.set("som","Somalia"); m.set("ssd","South Sudan"); m.set("stp","Sao Tome and Principe"); m.set("swz","Swaziland"); m.set("syc","Seychelles"); m.set("tcd","Chad"); m.set("tgo","Togo"); m.set("tun","Tunisia"); m.set("tza","Tanzania"); m.set("uga","Uganda"); m.set("zaf","South Africa"); m.set("zmb","Zambia"); m.set("zwe","Zimbabwe"); m.set("ata","Antarctica"); m.set("atf","French South Antarctic Territory"); m.set("bvt","Bouvet Island"); m.set("hmd","Heard Island and McDonald Islands"); m.set("sgs","South Georgia South Sandwich Islands"); m.set("afg","Afghanistan"); m.set("are","United Arab Emirates"); m.set("arm","Armenia"); m.set("aze","Azerbaijan"); m.set("bgd","Bangladesh"); m.set("bhr","Bahrain"); m.set("brn","Brunei"); m.set("btn","Bhutan"); m.set("cck","Cocos (Keeling) Islands"); m.set("chn","China"); m.set("cxr","Christmas Island"); m.set("cyp","Cyprus"); m.set("geo","Georgia"); m.set("hkg","Hong Kong"); m.set("idn","Indonesia"); m.set("ind","India"); m.set("iot","British Indian Ocean Territory"); m.set("irn","Iran"); m.set("irq","Iraq"); m.set("isr","Israel"); m.set("jor","Jordan"); m.set("jpn","Japan"); m.set("kaz","Kazakhstan"); m.set("kgz","Kyrgyzstan"); m.set("khm","Cambodia"); m.set("kor","South Korea"); m.set("kwt","Kuwait"); m.set("lao","Laos"); m.set("lbn","Lebanon"); m.set("lka","Sri Lanka"); m.set("mac","Macau"); m.set("mdv","Maldives"); m.set("mid","Midway"); m.set("mmr","Burma"); m.set("mng","Mongolia"); m.set("mys","Malaysia"); m.set("npl","Nepal"); m.set("omn","Oman"); m.set("pak","Pakistan"); m.set("phl","Philippines"); m.set("prk","North Korea"); m.set("pse","Palestine"); m.set("qat","Qatar"); m.set("sau","Saudi Arabia"); m.set("sgp","Singapore"); m.set("syr","Syria"); m.set("tha","Thailand"); m.set("tjk","Tajikistan"); m.set("tkm","Turkmenistan"); m.set("tls","Timor-Leste"); m.set("tur","Turkey"); m.set("twn","Taiwan"); m.set("uzb","Uzbekistan"); m.set("vnm","Vietnam"); m.set("yar","Yemen Arab Republic"); m.set("yem","Yemen"); m.set("ymd","Democratic Yemen"); m.set("alb","Albania"); m.set("and","Andorra"); m.set("aut","Austria"); m.set("bel","Belgium"); m.set("bgr","Bulgaria"); m.set("bih","Bosnia and Herzegovina"); m.set("blr","Belarus"); m.set("blx","Belgium-Luxembourg"); m.set("che","Switzerland"); m.set("chi","Channel Islands"); m.set("csk","Czechoslovakia"); m.set("cze","Czech Republic"); m.set("ddr","Democratic Republic of Germany"); m.set("deu","Germany"); m.set("dnk","Denmark"); m.set("esp","Spain"); m.set("est","Estonia"); m.set("fdr","Federal Republic of Germany"); m.set("fin","Finland"); m.set("fra","France"); m.set("fro","Faroe Islands"); m.set("gbr","United Kingdom"); m.set("gib","Gibraltar"); m.set("grc","Greece"); m.set("hrv","Croatia"); m.set("hun","Hungary"); m.set("imn","Isle of Man"); m.set("irl","Ireland"); m.set("isl","Iceland"); m.set("ita","Italy"); m.set("ksv","Kosovo"); m.set("lie","Liechtenstein"); m.set("ltu","Lithuania"); m.set("lux","Luxembourg"); m.set("lva","Latvia"); m.set("mco","Monaco"); m.set("mda","Moldova"); m.set("mkd","Macedonia"); m.set("mlt","Malta"); m.set("mne","Montenegro"); m.set("nld","Netherlands"); m.set("nor","Norway"); m.set("pol","Poland"); m.set("prt","Portugal"); m.set("rou","Romania"); m.set("rus","Russia"); m.set("scg","Serbia and Montenegro"); m.set("sjm","Svalbard"); m.set("smr","San Marino"); m.set("srb","Serbia"); m.set("sun","USSR"); m.set("svk","Slovakia"); m.set("svn","Slovenia"); m.set("swe","Sweden"); m.set("ukr","Ukraine"); m.set("vat","Holy See (Vatican City)"); m.set("yug","Yugoslavia"); m.set("abw","Aruba"); m.set("aia","Anguilla"); m.set("ant","Netherlands Antilles"); m.set("atg","Antigua and Barbuda"); m.set("bes","Bonaire"); m.set("bhs","Bahamas"); m.set("blm","Saint Barth√©lemy"); m.set("blz","Belize"); m.set("bmu","Bermuda"); m.set("brb","Barbados"); m.set("can","Canada"); m.set("cri","Costa Rica"); m.set("cub","Cuba"); m.set("cuw","Cura√ßao"); m.set("cym","Cayman Islands"); m.set("dma","Dominica"); m.set("dom","Dominican Republic"); m.set("grd","Grenada"); m.set("grl","Greenland"); m.set("gtm","Guatemala"); m.set("hnd","Honduras"); m.set("hti","Haiti"); m.set("jam","Jamaica"); m.set("kna","Saint Kitts and Nevis"); m.set("lca","Saint Lucia"); m.set("maf","Saint Maarten"); m.set("mex","Mexico"); m.set("msr","Montserrat"); m.set("mtq","Martinique"); m.set("naa","Netherland Antilles and Aruba"); m.set("nic","Nicaragua"); m.set("pan","Panama"); m.set("pci","Pacific Island (US)"); m.set("pcz","Panama Canal Zone"); m.set("pri","Puerto Rico"); m.set("slv","El Salvador"); m.set("spm","Saint Pierre and Miquelon"); m.set("tca","Turks and Caicos Islands"); m.set("tto","Trinidad and Tobago"); m.set("umi","United States Minor Outlying Islands"); m.set("usa","United States"); m.set("vct","Saint Vincent and the Grenadines"); m.set("vgb","British Virgin Islands"); m.set("vir","Virgin Islands"); m.set("asm","American Samoa"); m.set("aus","Australia"); m.set("cok","Cook Islands"); m.set("fji","Fiji"); m.set("fsm","Micronesia"); m.set("glp","Guadeloupe"); m.set("gum","Guam"); m.set("kir","Kiribati"); m.set("mhl","Marshall Islands"); m.set("mnp","Northern Mariana Islands"); m.set("ncl","New Caledonia"); m.set("nfk","Norfolk Island"); m.set("niu","Niue"); m.set("nru","Nauru"); m.set("nzl","New Zealand"); m.set("pcn","Pitcairn Islands"); m.set("plw","Palau"); m.set("png","Papua New Guinea"); m.set("pyf","French Polynesia"); m.set("slb","Solomon Islands"); m.set("tkl","Tokelau"); m.set("ton","Tonga"); m.set("tuv","Tuvalu"); m.set("vut","Vanuatu"); m.set("wlf","Wallis and Futuna"); m.set("wsm","Samoa"); m.set("arg","Argentina"); m.set("bol","Bolivia"); m.set("bra","Brazil"); m.set("chl","Chile"); m.set("col","Colombia"); m.set("ecu","Ecuador"); m.set("flk","Falkland Islands"); m.set("guf","French Guiana"); m.set("guy","Guyana"); m.set("per","Peru"); m.set("pry","Paraguay"); m.set("sur","Suriname"); m.set("ury","Uruguay"); m.set("ven","Venezuela"); m.set("wld","World"); m.set("xxa","Areas");
+
+
+
+
+
+
 var chartWidth       = 300,
     barHeight        = 40,
     groupHeight      = barHeight * data.series.length,
@@ -775,7 +792,7 @@ var chartWidth       = 300,
     spaceForTitle    = 100,
     marginWidth      = 0,
     marginHeight     = 150,
-    titleX           = 280,
+    titleX           = 290,
     titleY           = -100;
 
 var svg = d3.select("body").append("svg")
@@ -858,9 +875,9 @@ chart.append("g")
 //Titulo, usa o style .title definido no topo
 chart.append("text")
       .attr("class", "titleCountry")
-      .attr("x", titleX)
+      .attr("x", titleX+35)
       .attr("y", titleY)
-      .text(vis_title);
+      .text(m.get(vis_title));
 
              //NEW
 //Ano no titulo
@@ -872,10 +889,10 @@ chart.append("text")
 
 chart.append("text")
     .attr("class", "titleRight")
-    .attr("x", titleX + 60)
+    .attr("x", titleX + 55)
     .attr("y", titleY + 57)
     .attr("text-anchor", "middle")
-    .text(">>")
+    .text(">")
     .on("click", function() { 
 
       years = years +1;
@@ -909,10 +926,48 @@ chart.append("text")
             .each(function(d, i) {
                 d3.select(this).text(years);
             }); 
-
-
      });
 
+chart.append("text")
+    .attr("class", "titleLeft")
+    .attr("x", titleX + -105)
+    .attr("y", titleY + 57)
+    .attr("text-anchor", "middle")
+    .text("<")
+    .on("click", function() { 
+
+      years = years - 1;
+      if(years<1993){years=1993};
+
+
+        zippedData = zipData(input[years-1993]);
+        
+
+         var x2 = d3.scale.linear()
+         .domain([0, d3.max(zippedData)])
+         .range([0, chartWidth]);
+
+           svg.selectAll("g").select("rect")
+               .data(zippedData)
+               .each(function(d, i) {
+                d3.select(this).attr("width", x2(zippedData[i]));
+                });
+
+        svg.selectAll("g").select("text.insideText")
+            .each(function(d, i) {
+                d3.select(this).text("$"+zippedData[i]+"MM");
+            });     
+
+        svg.selectAll("g").select("text.label")
+            .each(function(d, i) {
+                d3.select(this).text(input[years-1993].labels[i]);
+            }); 
+
+        svg.select("text.titleYear")
+            .each(function(d, i) {
+                d3.select(this).text(years);
+            }); 
+     });
 
 }
 
