@@ -74,8 +74,8 @@ d3.tsv("data/year_origin_sitc2_final.tsv", function (data) {
     //gen_vis();
     gen_tree();
     genChord();
-    genScatterPlot();
-    //genHeatMap();
+    //genScatterPlot();
+    genHeatMap();
 })
 
 //onmouseover

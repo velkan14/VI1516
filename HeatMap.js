@@ -12,6 +12,19 @@ function genHeatMap(){
       times = ["'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10", "'11", "'12", "'13"];
       datasets = ["FinalData1993.tsv", "FinalData1994.tsv", "FinalData1995.tsv","FinalData1996.tsv","FinalData1997.tsv","FinalData1998.tsv","FinalData1999.tsv","FinalData2000.tsv","FinalData2001.tsv","FinalData2002.tsv","FinalData2003.tsv","FinalData2004.tsv","FinalData2005.tsv","FinalData2006.tsv","FinalData2007.tsv","FinalData2008.tsv","FinalData2010.tsv","FinalData2011.tsv","FinalData2012.tsv","FinalData2013.tsv"];
 
+      var origin = "prt";
+      var destination = "ago";
+
+      var selectOrigin  = d3.select("#rightSide").append("select").on("change", changeOrigin),
+          optionsOrigin = selectOrigin.selectAll('option').data(data_names); // Data join
+      // Enter selection
+      optionsOrigin.enter().append("option").text(function(d) { return d.name; });
+
+      var selectDestination  = d3.select("#rightSide").append("select").on("change", changeDestination),
+          optionsDestination = selectDestination.selectAll('option').data(data_names); // Data join
+      // Enter selection
+      optionsDestination.enter().append("option").text(function(d) { return d.name; });
+
   var svg = d3.select("#rightSide").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -55,7 +68,6 @@ function genHeatMap(){
           };
       },
       function(error, data) {
-        console.log(data);
         var maxImport = d3.max(data, function (d) { return d.import; });
         var maxExport = d3.max(data, function (d) { return d.export; });
         var max = Math.max(maxImport, maxExport);
@@ -101,7 +113,7 @@ function genHeatMap(){
 
         legendImport.append("text")
           .attr("class", "mono")
-          .text(function(d) { return "≥ " + Math.round(d); })
+          .text(function(d) { return "≥ " + (d/1000000000).toFixed(1); })
           .attr("x", function(d, i) { return legendElementWidth * i; })
           .attr("y", height + gridSize);
 
@@ -150,7 +162,7 @@ function genHeatMap(){
 
         legend.append("text")
           .attr("class", "mono")
-          .text(function(d) { return "≥ " + Math.round(d); })
+          .text(function(d) { return "≥ " + (d/1000000000).toFixed(1); })
           .attr("x", function(d, i) { return legendElementWidth * i; })
           .attr("y", height + gridSize);
 
@@ -160,7 +172,7 @@ function genHeatMap(){
     };
 
     //heatmapChart("data/Bilateral/"+datasets[0], "prt", "and");
-    heatmapChart("data/FinalData1.tsv", "prt", "aus");
+    heatmapChart("data/FinalData1.tsv", origin, destination);
 
     /*var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
       .data(datasets);
@@ -173,4 +185,24 @@ function genHeatMap(){
       .on("click", function(d) {
         heatmapChart(d);
       });*/
+
+
+
+      function changeOrigin() {
+          var si   = selectOrigin.property('selectedIndex'),
+              s    = optionsOrigin.filter(function (d, i) { return i === si }),
+              data = s.datum();
+              origin = data.id_3char;
+              heatmapChart("data/FinalData1.tsv", origin, destination);
+      }
+
+      function changeDestination() {
+          var si   = selectDestination.property('selectedIndex'),
+              s    = optionsDestination.filter(function (d, i) { return i === si }),
+              data = s.datum();
+              destination = data.id_3char;
+              heatmapChart("data/FinalData1.tsv", origin, destination);
+      }
+
+
 }
