@@ -9,7 +9,7 @@ html,
 body { height: 100%; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, 'Open Sans', sans-serif;
   background: #BECED6;
 }
 
@@ -41,11 +41,11 @@ a:visited { text-decoration: none; }
   margin-top:7%;
   margin-left: 34.3%;
   overflow: hidden;
- 
+
 }
 
 
-  
+
 #hexnav {
 background: rgba(255,255,255, 0.3); /* off-white */
 z-index: 5;
@@ -153,7 +153,7 @@ hexHover {  0% {
   -ms-transform: skewY(-30deg);
   transform: skewY(-30deg);
   opacity: 0;
- 
+
 }
 
 .tr:nth-child(1) {

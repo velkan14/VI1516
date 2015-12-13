@@ -34,7 +34,7 @@ function genHeatMap(){
   var sitcLabels = svg.selectAll(".sitcLabel")
       .data(days)
       .enter().append("text")
-        .text(function (d) { return getNameFromSitc(d).substring(0,10) + "..."; })
+        .text(function (d) { var s = getNameFromSitc(d); if(s.length > 13) return s.substring(0,10) + "..."; return s; })
         .attr("x", 0)
         .attr("y", function (d, i) { return i * gridSize; })
         .style("text-anchor", "end")

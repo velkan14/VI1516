@@ -1,7 +1,7 @@
 function genScatterPlot(){
   var i = 0;
   var duration = 700;
-  var margin = {top: 5, right: 100, bottom: 25, left: 40},
+  var margin = {top: 5, right: 100, bottom: 30, left: 40},
       width = 650 - margin.left - margin.right,
       height = 200 - margin.top - margin.bottom;
 

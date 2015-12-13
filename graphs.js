@@ -15,10 +15,10 @@ d3.tsv("data/SITC4_english_structure.tsv", function (data){
     for(var i = 0; i < data.length; i++){
         if(data[i].code.length == 1){
             var children = [];
-            var obj = {"parent":root, "children": null, "value": data[i].description, "depth": 1};
+            var obj = {"parent":root, "children": null, "value": data[i].label, "depth": 1};
             for(var j = 0; j < data.length; j++){
                 if(data[j].code.length == 2 && data[j].code[0] == data[i].code){
-                    var child = {"parent":obj, "children": null, "value": data[j].description, "depth": 2}
+                    var child = {"parent":obj, "children": null, "value": data[j].label, "depth": 2}
                     children.push(child);
                 }
             }
@@ -88,7 +88,7 @@ function getNameFromCode(code){
 function getNameFromSitc(code){
     for(var i = 0; i < sitc.length; i++){
         if(sitc[i].code == code){
-          return sitc[i].description;
+          return sitc[i].label;
         }
     }
 }
