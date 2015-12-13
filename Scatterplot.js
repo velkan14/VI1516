@@ -80,7 +80,7 @@ function genScatterPlot(){
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
     // x-axis
-    svg.append("g")
+   svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
@@ -113,7 +113,7 @@ function genScatterPlot(){
                     yeardata.push(d);
                   }
             });
-            var sitcList = [3, 5, 6];
+            var sitcList = [1, 21];
             var data = [];
             yeardata.forEach(function(d) {
               sitcList.forEach(function(s){
@@ -123,25 +123,19 @@ function genScatterPlot(){
               })
 
             });
+            updateAxis(data);
             updateDots(data);
         }
 
+        function updateAxis(data){
+          xScale.domain(data.map(function(d){return d.sitc_string;}));
+          yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+          svg.select(".x.axis").call(xAxis);
+          svg.select(".y.axis").call(yAxis);
+
+        }
 
       function updateDots(data){
-        // setup x
-            xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([20, width-10]); // value -> display CHANGED
-            xAxis = d3.svg.axis().scale(xScale)
-            //.ticks(10)
-            .tickFormat(function (d) {
-                var s = getNameFromSitc(d);
-                if(s.length > 12){
-                  return s.substring(0, 12) + "...";
-                }
-                else return s;
-            })
-            .orient("bottom");
-
-        svg.selectAll("x axis").call(xAxis);
         // Update the nodes…
         var dot = svg.selectAll("g.dot")
             .data(data, function(d) { return d.id || (d.id = ++i); });
