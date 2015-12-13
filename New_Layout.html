@@ -89,9 +89,9 @@
     document.getElementById('menuBtn').onclick = function() {
       var className = ' ' + hexNav.className + ' ';
       if ( ~className.indexOf(' active ') ) {
-        hexNav.className = className.replace(' active ', ' ');
+        hexNav.className = 'nav';//className.replace(' active ', ' ');
       } else {
-        hexNav.className += ' active';
+        hexNav.className = 'navActive active';
       }
     }
     </script>

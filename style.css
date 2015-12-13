@@ -36,6 +36,17 @@ a:visited { text-decoration: none; }
 
 .nav {
   position: absolute;
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  margin-top: 250px;
+  margin-left: 580px;
+  overflow: hidden;
+}
+
+.navActive{
+  position: absolute;
   width: 70vmin;
   height: 70vmin;
   min-width: 500px;

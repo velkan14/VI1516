@@ -13,15 +13,19 @@ function genScatterPlot(){
     var dddd = dataset;
     var yeardata = [];
     dataset.forEach(function(d) {
-          if(d.year == 2013){
+          if(d.year == 2012){
             yeardata.push(d);
           }
     });
+    var sitcList = [1, 3, 4, 5, 6];
     var data = [];
     yeardata.forEach(function(d) {
-          if(d.sitc < width/100){
-            data.push(d);
-          }
+      sitcList.forEach(function(s){
+        if(d.sitc == s){
+          data.push(d);
+        }
+      })
+
     });
     // change string (from CSV) into number format
 
@@ -109,18 +113,35 @@ function genScatterPlot(){
                     yeardata.push(d);
                   }
             });
+            var sitcList = [3, 5, 6];
             var data = [];
             yeardata.forEach(function(d) {
-              //FIXME: Provavelmente devo receber os nºs de sitc num array
-                  if(d.sitc < width/100){
-                    data.push(d);
-                  }
+              sitcList.forEach(function(s){
+                if(d.sitc == s){
+                  data.push(d);
+                }
+              })
+
             });
             updateDots(data);
         }
 
 
       function updateDots(data){
+        // setup x
+            xScale = d3.scale.ordinal().domain(data.map(function(d){return d.sitc_string;})).rangePoints([20, width-10]); // value -> display CHANGED
+            xAxis = d3.svg.axis().scale(xScale)
+            //.ticks(10)
+            .tickFormat(function (d) {
+                var s = getNameFromSitc(d);
+                if(s.length > 12){
+                  return s.substring(0, 12) + "...";
+                }
+                else return s;
+            })
+            .orient("bottom");
+
+        svg.selectAll("x axis").call(xAxis);
         // Update the nodes…
         var dot = svg.selectAll("g.dot")
             .data(data, function(d) { return d.id || (d.id = ++i); });
