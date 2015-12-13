@@ -3,7 +3,7 @@ function gen_tree() {
     var h = 500;
     var i = 0;
     var duration = 750;
-    var svg = d3.select("#treediv")
+    var svg = d3.select("#treevis")
     .append("svg")
     .attr("width",w)
     .attr("height",h);

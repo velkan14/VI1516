@@ -1,9 +1,9 @@
 function genScatterPlot(){
   var i = 0;
   var duration = 700;
-  var margin = {top: 20, right: 100, bottom: 30, left: 40},
+  var margin = {top: 5, right: 100, bottom: 25, left: 40},
       width = 650 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+      height = 200 - margin.top - margin.bottom;
 
       var tooltip = d3.select("body").append("div")
       .attr("class", "tooltip")
@@ -69,7 +69,7 @@ function genScatterPlot(){
     .range(["#3ADF00", "#FE9A2E" , "#8A4B08"]);
 
   // add the graph canvas to the body of the webpage
-  var svg = d3.select("#rightSide").append("svg")
+  var svg = d3.select("#scatterplotvis").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")

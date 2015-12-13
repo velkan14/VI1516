@@ -1,8 +1,8 @@
 
 function genHeatMap(){
-    var margin = { top: 50, right: 0, bottom: 100, left: 100 },
-      width = 520 - margin.left - margin.right,
-      height = 380 - margin.top - margin.bottom,
+    var margin = { top: 30, right: 0, bottom: 100, left: 100 },
+      width = 600 - margin.left - margin.right,
+      height = 480 - margin.top - margin.bottom,
       gridSize = Math.floor(width / 21),
       legendElementWidth = gridSize*2,
       buckets = 9,
@@ -15,17 +15,17 @@ function genHeatMap(){
       var origin = "prt";
       var destination = "ago";
 
-      var selectOrigin  = d3.select("#countrydiv").append("select").on("change", changeOrigin),
+      var selectOrigin  = d3.select("#heatmapvis").append("select").on("change", changeOrigin),
           optionsOrigin = selectOrigin.selectAll('option').data(data_names); // Data join
       // Enter selection
-      optionsOrigin.enter().append("#countrydiv").text(function(d) { return d.name; });
+      optionsOrigin.enter().append("option").text(function(d) { return d.name; });
 
-      var selectDestination  = d3.select("#countrydiv").append("select").on("change", changeDestination),
+      var selectDestination  = d3.select("#heatmapvis").append("select").on("change", changeDestination),
           optionsDestination = selectDestination.selectAll('option').data(data_names); // Data join
       // Enter selection
       optionsDestination.enter().append("option").text(function(d) { return d.name; });
 
-  var svg = d3.select("#countrydiv").append("svg")
+  var svg = d3.select("#heatmapvis").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -106,7 +106,7 @@ function genHeatMap(){
 
         legendImport.append("rect")
           .attr("x", function(d, i) { return legendElementWidth * i; })
-          .attr("y", height)
+          .attr("y", height - 115)
           .attr("width", legendElementWidth)
           .attr("height", gridSize / 2)
           .style("fill", function(d, i) { return colorsRed[i]; });
@@ -115,7 +115,7 @@ function genHeatMap(){
           .attr("class", "mono")
           .text(function(d) { return "≥ " + (d/1000000000).toFixed(1); })
           .attr("x", function(d, i) { return legendElementWidth * i; })
-          .attr("y", height + gridSize);
+          .attr("y", height + gridSize -100);
 
         legendImport.exit().remove();
 
@@ -155,7 +155,7 @@ function genHeatMap(){
 
         legend.append("rect")
           .attr("x", function(d, i) { return legendElementWidth * i; })
-          .attr("y", height - 15)
+          .attr("y", height - 100)
           .attr("width", legendElementWidth)
           .attr("height", gridSize / 2)
           .style("fill", function(d, i) { return colorsGreen[i]; });

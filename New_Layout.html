@@ -26,8 +26,8 @@
           <input type="text" id="range" value="" name="range" />
         </div>
       </div>
-	  
-    <div id="leftSide" style="width:49%; height:80%; float:left; background: rgba(255,255,255,0.7); border-radius: 20px 100px 20px 20px; z-index:1"> 
+
+    <div id="leftSide" style="width:49%; height:80%; float:left; background: rgba(255,255,255,0.7); border-radius: 20px 100px 20px 20px; z-index:1">
 		<ul class="vis" style="width:90%; height:80%; margin-left: 10px; margin-top: 15px">
           <li><div id="mapvis" style="position: absolute;width:45%; height:540px; z-index:11; display:none">World Map</div></li>
 		  <li><div id="chordvis" style=" position: absolute; width:45%; height: 540px; z-index:12; display:none">Chord</div></li>
@@ -84,13 +84,16 @@
 					</ul>
 				  </div></li>
 					</ul>
-					 
+
 	</div>
-	<div id="rightSide" style="width:49%; height:80%; float:right; background: rgba(255,255,255,0.7); margin-right:12px; border-radius:100px 20px 20px 20px; z-index:1"> 
-	 
+	<div id="rightSide" style="width:49%; height:80%; float:right; background: rgba(255,255,255,0.7); margin-right:12px; border-radius:100px 20px 20px 20px; z-index:1">
+
 		<ul class="vis" style="width:90%; height:80%; float:right; margin-right:25px; margin-top: 15px">
           <li><div id="countryvis" style=" position: absolute;width:45%; height:540px; z-index:11; display:none">Country</div></li>
-		  <li><div id="productvis" style=" position: absolute; width:45%; height: 540px; z-index:12; display:none"></div></li>
+		  <li><div id="productvis" style=" position: absolute; width:45%; height: 540px; z-index:12; display:none">
+          <div id="scatterplotvis"></div>
+          <div id="heatmapvis"></div>
+      </div></li>
 		  <li><div id="rankvis" style=" position: absolute;  width:45%; height: 540px; z-index:13; display:none">Rank</div></li>
 		</ul>
 	</div>
@@ -108,9 +111,9 @@
         hexNav.className += ' active';
 		hexNav.style.zIndex = '15';
       }
-	  
+
 	<!--   if (hexNav.style.zIndex == '5'){ hexNav.style.zIndex == '15';} else {hexNav.style.zIndex == '5';}
-	 -->  
+	 -->
     }
     </script>
     <script type="text/javascript">
@@ -133,59 +136,59 @@
         document.getElementById("mapvis").style.display = "block";
 		document.getElementById("chordvis").style.display = "none";
 		document.getElementById("treevis").style.display = "none";}
-		
+
         else{
           document.getElementById("mapvis").style.display = "none";
         }}
-	
-	
+
+
     function showChord() {
       if (document.getElementById("chordvis").style.display == "none"){
         document.getElementById("chordvis").style.display = "block";
 		document.getElementById("mapvis").style.display = "none";
 		document.getElementById("treevis").style.display = "none";}
-		
+
         else{
           document.getElementById("chordvis").style.display = "none";
         }}
-	
-	
+
+
     function showTree() {
       if (document.getElementById("treevis").style.display == "none"){
         document.getElementById("treevis").style.display = "block";
 		document.getElementById("mapvis").style.display = "none";
 		document.getElementById("chordvis").style.display = "none";}
-		
+
         else{
           document.getElementById("treevis").style.display = "none";
         }}
-		
+
 		function showCountry() {
       if (document.getElementById("countryvis").style.display == "none"){
         document.getElementById("countryvis").style.display = "display";
 		document.getElementById("productvis").style.display = "none";
 		document.getElementById("rankvis").style.display = "none";}
-		
+
         else{
           document.getElementById("countryvis").style.display = "none";
         }}
-		
+
 		function showProduct() {
       if (document.getElementById("productvis").style.display == "none"){
         document.getElementById("productvis").style.display = "block";
 		document.getElementById("countryvis").style.display = "none";
 		document.getElementById("rankvis").style.display = "none";}
-		
+
         else{
           document.getElementById("productvis").style.display = "none";
         }}
-		
+
 		function showRank() {
       if (document.getElementById("rankvis").style.display == "none"){
         document.getElementById("rankvis").style.display = "block";
 		document.getElementById("countryvis").style.display = "none";
 		document.getElementById("productvis").style.display = "none";}
-		
+
         else{
           document.getElementById("rankvis").style.display = "none";
         }}
