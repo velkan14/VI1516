@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: black;
+  font: 18px sans-serif;
+  text-anchor: end;
+}
+
+.chart .title {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .title {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleCountry {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleYear {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleRight {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.title {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+
+.bar:hover {
+  fill: brown;
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+</style>
+<body>
+<script src="lib/d3.v3.min.js"></script>
+<script>
+
+
+
+
+
+
+//Chamada incial á funcao que processa o ficheiro e o apresenta
+bars("prt", 2000);
+
+
+function bars(vis_title, years) 
+{
+
+  var country,
+      headerNames,
+      top1,top2,top3,
+      top4,top5,val1,
+      val2,val3,val4,val5;
+
+  //O nome do ficheiro csv a ler
+  var fileName = "tops/1993.csv";
+
+  d3.csv(fileName, function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  var data = [];
+  data[0] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1994.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[1] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1995.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[2] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1996.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[3] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1997.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[4] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1998.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[5] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/1999.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[6] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2000.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[7] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2001.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[8] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2002.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[9] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2003.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[10] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2004.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[11] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2005.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[12] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2006.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[13] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2007.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[14] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2008.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[15] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2009.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[16] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2010.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[17] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2011.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[18] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2012.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[19] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  d3.csv("tops/2013.csv", function(error, d) {
+
+      headerNames = d3.keys(d[0]);
+      matchedRow  = d.filter(function(d) { return d.country == vis_title; });
+      
+      country =   matchedRow[0].country;
+      top1    =  +matchedRow[0].top1;
+      top2    =  +matchedRow[0].top2;
+      top3    =  +matchedRow[0].top3;
+      top4    =  +matchedRow[0].top4;
+      top5    =  +matchedRow[0].top5;
+      val1    = (+matchedRow[0].val1).toFixed(2);//4 casas decimais
+      val2    = (+matchedRow[0].val2).toFixed(2);
+      val3    = (+matchedRow[0].val3).toFixed(2);
+      val4    = (+matchedRow[0].val4).toFixed(2);
+      val5    = (+matchedRow[0].val5).toFixed(2);
+  
+  var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
+
+  data[20] = 
+  {
+    labels: [ top1, top2, top3, top4, top5  ],
+    series: 
+    [
+      { 
+        label: years,
+        values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
+      },
+    ]
+  };
+
+  rangeBars(data, years);
+ 
+   });});});});});});});});});});});});});});});});});});});});
+});
+
+
+
+
+
+
+function zipData(data){
+  var zippedData = [];
+  for (var i=0; i<data.labels.length; i++) {
+  for (var j=0; j<data.series.length; j++) {
+    zippedData.push(data.series[j].values[i]);
+  }
+}
+return zippedData;
+}
+
+
+function rangeBars(input, years){
+
+data = input[years-1993];
+
+var chartWidth       = 300,
+    barHeight        = 40,
+    groupHeight      = barHeight * data.series.length,
+    gapBetweenGroups = 10,
+    spaceForLabels   = 150,
+    spaceForTitle    = 100,
+    marginWidth      = 0,
+    marginHeight     = 150,
+    titleX           = 280,
+    titleY           = -100;
+
+var svg = d3.select("body").append("svg")
+    .attr("class", "chart")
+    .attr("width", marginWidth + chartWidth)
+    .attr("height", marginHeight + groupHeight)
+    .attr("transform", "translate(" + marginWidth + "," + marginHeight + ")");
+    
+
+// Zip the series data together (first values, second values, etc.)
+zippedData = zipData(data);
+
+// Color scale
+var color = d3.scale.category20();
+var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(zippedData)])
+    .range([0, chartWidth]);
+
+var y = d3.scale.linear()
+    .range([chartHeight + gapBetweenGroups, 0]);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .tickFormat('')
+    .tickSize(0)
+    .orient("left");
+
+// Specify the chart area and dimensions
+var chart = d3.select(".chart")
+    .attr("width", spaceForLabels + chartWidth)
+    .attr("height", chartHeight + marginHeight);// + espaco para o titulo
+
+// Create bars
+var bar = chart.selectAll("g")
+    .data(zippedData)
+    .enter().append("g")
+    .attr("transform", function(d, i) {
+      return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data.series.length))) + ")";
+    });
+
+// Create rectangles of the correct width
+bar.append("rect")
+    .attr("fill", function(d,i) { return color(i % data.series.length); })
+    .attr("class", "bar")
+    .attr("width", x)
+    .attr("height", barHeight - 1);
+
+// Add text label in bar
+bar.append("text")
+    .attr("class", "insideText")
+    .attr("x", 55)
+    .attr("y", barHeight / 2)
+    .attr("fill", "red")
+    .attr("dy", ".35em")
+    .style("font-size", "12px")//Tamanho do texto dentro das barras
+    .style("color", "black")
+    .text(function(d) { return "$"+d+"MM"; });
+
+// Draw labels
+bar.append("text")
+    .attr("class", "label")
+    .attr("x", function(d) { return - 10; })
+    .attr("y", groupHeight / 2)
+    .attr("dy", ".35em")
+    .text(function(d,i) {
+      if (i % data.series.length === 0)
+        return data.labels[Math.floor(i/data.series.length)];
+      else
+        return ""});
+
+//Linha vertical entre a legenda e as barras
+chart.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
+      .call(yAxis);
+
+
+//Titulo, usa o style .title definido no topo
+chart.append("text")
+      .attr("class", "titleCountry")
+      .attr("x", titleX)
+      .attr("y", titleY)
+      .text(vis_title);
+
+             //NEW
+//Ano no titulo
+chart.append("text")
+    .attr("class", "titleYear")
+    .attr("x", titleX)
+    .attr("y", titleY + 60)
+    .text(years);
+
+chart.append("text")
+    .attr("class", "titleRight")
+    .attr("x", titleX + 60)
+    .attr("y", titleY + 57)
+    .attr("text-anchor", "middle")
+    .text(">>")
+    .on("click", function() { 
+
+      years = years +1;
+      if(years>2013){years=2013};
+
+
+        zippedData = zipData(input[years-1993]);
+        
+
+         var x2 = d3.scale.linear()
+         .domain([0, d3.max(zippedData)])
+         .range([0, chartWidth]);
+
+           svg.selectAll("g").select("rect")
+               .data(zippedData)
+               .each(function(d, i) {
+                d3.select(this).attr("width", x2(zippedData[i]));
+                });
+
+        svg.selectAll("g").select("text.insideText")
+            .each(function(d, i) {
+                d3.select(this).text("$"+zippedData[i]+"MM");
+            });     
+
+        svg.selectAll("g").select("text.label")
+            .each(function(d, i) {
+                d3.select(this).text(input[years-1993].labels[i]);
+            }); 
+
+        svg.select("text.titleYear")
+            .each(function(d, i) {
+                d3.select(this).text(years);
+            }); 
+
+
+     });
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
+</script>
+</body>
