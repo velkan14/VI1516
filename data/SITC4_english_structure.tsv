@@ -1,78 +1,79 @@
-code	description
-0	Food and live animals
-00	Live animals other than animals of division 03
-01	Meat and meat preparations
-02	Dairy products and birds’ eggs
-03	Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof
-04	Cereals and cereal preparations
-05	Vegetables and fruit
-06	Sugars, sugar preparations and honey
-07	Coffee, tea, cocoa, spices, and manufactures thereof
-08	Feeding stuff for animals (not including unmilled cereals)
-09	Miscellaneous edible products and preparations
-1	Beverages and tobacco
-11	Beverages
-12	Tobacco and tobacco manufactures
-2	Crude materials, inedible, except fuels
-21	Hides, skins and furskins, raw
-22	Oil-seeds and oleaginous fruits
-23	Crude rubber (including synthetic and reclaimed)
-24	Cork and wood
-25	Pulp and waste paper
-26	Textile fibres (other than wool tops and other combed wool) and their wastes (not manufactured into yarn or fabric)
-27	Crude fertilizers, other than those of Division 56, and crude minerals (excluding coal, petroleum and precious stones)
-28	Metalliferous ores and metal scrap
-29	Crude animal and vegetable materials, n.e.s.
-3	Mineral fuels, lubricants and related materials
-32	Coal, coke and briquettes
-33	Petroleum, petroleum products and related materials
-34	Gas, natural and manufactured
-35	Electric current
-4	Animal and vegetable oils, fats and waxes
-41	Animal oils and fats
-42	Fixed vegetable fats and oils, crude, refined or fractionated
-43	"Animal or vegetable fats and oils, processed; waxes of animal or vegetable origin; inedible mixtures or preparations of animal or vegetable fats or oils, n.e.s."
-5	Chemicals and related products, n.e.s.
-51	Organic chemicals
-52	Inorganic chemicals
-53	Dyeing, tanning and colouring materials
-54	Medicinal and pharmaceutical products
-55	"Essential oils and resinoids and perfume materials; toilet, polishing and cleansing preparations"
-56	Fertilizers (other than those of group 272)
-57	Plastics in primary forms
-58	Plastics in non-primary forms
-59	Chemical materials and products, n.e.s.
-6	Manufactured goods classified chiefly by material
-61	Leather, leather manufactures, n.e.s., and dressed furskins
-62	Rubber manufactures, n.e.s.
-63	Cork and wood manufactures (excluding furniture)
-64	Paper, paperboard and articles of paper pulp, of paper or of paperboard
-65	Textile yarn, fabrics, made-up articles, n.e.s., and related products
-66	Non-metallic mineral manufactures, n.e.s.
-67	Iron and steel
-68	Non-ferrous metals
-69	Manufactures of metals, n.e.s.
-7	Machinery and transport equipment
-71	Power-generating machinery and equipment
-72	Machinery specialized for particular industries
-73	Metalworking machinery
-74	General industrial machinery and equipment, n.e.s., and machine parts, n.e.s.
-75	Office machines and automatic data-processing machines
-76	Telecommunications and sound-recording and reproducing apparatus and equipment
-77	Electrical machinery, apparatus and appliances, n.e.s., and electrical parts thereof (including non-electrical counterparts, n.e.s., of electrical household-type equipment)
-78	Road vehicles (including air-cushion vehicles)
-79	Other transport equipment
-8	Miscellaneous manufactured articles
-81	"Prefabricated buildings; sanitary, plumbing, heating and lighting fixtures and fittings, n.e.s."
-82	"Furniture and parts thereof; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings"
-83	Travel goods, handbags and similar containers
-84	Articles of apparel and clothing accessories
-85	Footwear
-87	Professional, scientific and controlling instruments and apparatus, n.e.s.
-88	"Photographic apparatus, equipment and supplies and optical goods, n.e.s.; watches and clocks"
-89	Miscellaneous manufactured articles, n.e.s.
-9	Commodities and transactions not classified elsewhere in the SITC
-91	Postal packages not classified according to kind
-93	Special transactions and commodities not classified according to kind
-96	Coin (other than gold coin), not being legal tender
-97	Gold, non-monetary (excluding gold ores and concentrates)
+code	description	label	
+0	Food and live animals	Food/Live animals	
+0	Live animals other than animals of division 03	Live Animals	
+1	Meat and meat preparations	Meat	
+2	Dairy products and birds’ eggs	Dairy Products	
+3	Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof	Fish/Seafood	
+4	Cereals and cereal preparations	Cereals	
+5	Vegetables and fruit	Vegetables/Fruit	
+6	Sugars, sugar preparations and honey	Sugar/Honey	
+7	Coffee, tea, cocoa, spices, and manufactures thereof	Coffee/Tea	
+8	Feeding stuff for animals (not including unmilled cereals)	Animal Feed	
+9	Miscellaneous edible products and preparations	Misc Edibles	
+1	Beverages and tobacco	Beverages/Tobacco	
+11	Beverages	Beverages	
+12	Tobacco and tobacco manufactures	Tobacco	
+2	Crude materials, inedible, except fuels	Inedible Crude Materials	
+21	Hides, skins and furskins, raw	Skins/Furskins	
+22	Oil-seeds and oleaginous fruits	Oil-Seeds	
+23	Crude rubber (including synthetic and reclaimed)	Rubber	
+24	Cork and wood	Cork/Wood	
+25	Pulp and waste paper	Waste Paper	
+26	Textile fibres (other than wool tops and other combed wool) and their wastes (not manufactured into yarn or fabric)	Fibers	
+27	Crude fertilizers, other than those of Division 56, and crude minerals (excluding coal, petroleum and precious stones)	Fertilizers/Minerals	
+28	Metalliferous ores and metal scrap	Metallic Ores	
+29	Crude animal and vegetable materials, n.e.s.	Bio Materials	
+3	Mineral fuels, lubricants and related materials	Mineral Fuels	
+32	Coal, coke and briquettes	Coal	
+33	Petroleum, petroleum products and related materials	Petroleum	
+34	Gas, natural and manufactured	Gas	
+35	Electric current	Electricity	
+4	Animal and vegetable oils, fats and waxes	Bio Oils and Fats	
+41	Animal oils and fats	Animal Oil/Fat	
+42	Fixed vegetable fats and oils, crude, refined or fractionated	Vegetable Oil/Fat	
+43	"Animal or vegetable fats and oils, processed; waxes of animal or vegetable origin; inedible mixtures or preparations of animal or vegetable fats or oils, n.e.s."	Bio Wax	
+5	Chemicals and related products, n.e.s.	Chemicals	
+51	Organic chemicals	Organic Chemicals	
+52	Inorganic chemicals	Inorganic Chemicals	
+53	Dyeing, tanning and colouring materials	Dye/Tan Materials	
+54	Medicinal and pharmaceutical products	Pharmaceuticals	
+55	"Essential oils and resinoids and perfume materials; toilet, polishing and cleansing preparations"	Essential Oils	
+56	Fertilizers (other than those of group 272)	Fertilizers	
+57	Plastics in primary forms	Plastics	
+58	Plastics in non-primary forms	Non-primary Plastics	
+59	Chemical materials and products, n.e.s.	Chemical Products	
+6	Manufactured goods classified chiefly by material	Manufactured goods	
+61	Leather, leather manufactures, n.e.s., and dressed furskins	Leather	
+62	Rubber manufactures, n.e.s.	Manufactured Rubber	
+63	Cork and wood manufactures (excluding furniture)	Manufacture Cork/Wood	
+64	Paper, paperboard and articles of paper pulp, of paper or of paperboard	Paper	
+65	Textile yarn, fabrics, made-up articles, n.e.s., and related products	Yarn/Fabrics	
+66	Non-metallic mineral manufactures, n.e.s.	Manufactured Minerals	
+67	Iron and steel	Iron/Steel	
+68	Non-ferrous metals	Non-ferrous Metals	
+69	Manufactures of metals, n.e.s.	Manufactured Metal	
+7	Machinery and transport equipment	Machinery/Transport	
+71	Power-generating machinery and equipment	Power Generators	
+72	Machinery specialized for particular industries	Special Machinery	
+73	Metalworking machinery	Metalworking Machinery	
+74	General industrial machinery and equipment, n.e.s., and machine parts, n.e.s.	Industrial Equipment	
+75	Office machines and automatic data-processing machines	Office Machines	
+76	Telecommunications and sound-recording and reproducing apparatus and equipment	Telecom Equipment	
+77	Electrical machinery, apparatus and appliances, n.e.s., and electrical parts thereof (including non-electrical counterparts, n.e.s., of electrical household-type equipment)	Electrical Machinery	
+78	Road vehicles (including air-cushion vehicles)	Road Vehicles	
+79	Other transport equipment	Transport Equipment	
+8	Miscellaneous manufactured articles	Misc Articles	
+81	"Prefabricated buildings; sanitary, plumbing, heating and lighting fixtures and fittings, n.e.s."	Pre-made Buildings	
+82	"Furniture and parts thereof; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings"	Furniture	
+83	Travel goods, handbags and similar containers	Travel Goods	
+84	Articles of apparel and clothing accessories	Apparel	
+85	Footwear	Footwear	
+87	Professional, scientific and controlling instruments and apparatus, n.e.s.	Scientific Equipment	
+88	"Photographic apparatus, equipment and supplies and optical goods, n.e.s.; watches and clocks"	Cameras/Clocks	
+89	Miscellaneous manufactured articles, n.e.s.	Unclassified Articles	
+9	Commodities and transactions not classified elsewhere in the SITC	Commodities/Transactions	
+91	Postal packages not classified according to kind	Postal Packages	
+93	Special transactions and commodities not classified according to kind	Special Transactions	
+94	Live animals (including zoo animals, pets, etc)	Animals/Pets	
+96	Coin (other than gold coin), not being legal tender	Coin	
+97	Gold, non-monetary (excluding gold ores and concentrates)	Gold	
