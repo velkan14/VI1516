@@ -1,8 +1,8 @@
 
 function genHeatMap(){
     var margin = { top: 50, right: 0, bottom: 100, left: 100 },
-      width = 620 - margin.left - margin.right,
-      height = 480 - margin.top - margin.bottom,
+      width = 520 - margin.left - margin.right,
+      height = 380 - margin.top - margin.bottom,
       gridSize = Math.floor(width / 21),
       legendElementWidth = gridSize*2,
       buckets = 9,
@@ -15,17 +15,17 @@ function genHeatMap(){
       var origin = "prt";
       var destination = "ago";
 
-      var selectOrigin  = d3.select("#rightSide").append("select").on("change", changeOrigin),
+      var selectOrigin  = d3.select("#countrydiv").append("select").on("change", changeOrigin),
           optionsOrigin = selectOrigin.selectAll('option').data(data_names); // Data join
       // Enter selection
-      optionsOrigin.enter().append("option").text(function(d) { return d.name; });
+      optionsOrigin.enter().append("#countrydiv").text(function(d) { return d.name; });
 
-      var selectDestination  = d3.select("#rightSide").append("select").on("change", changeDestination),
+      var selectDestination  = d3.select("#countrydiv").append("select").on("change", changeDestination),
           optionsDestination = selectDestination.selectAll('option').data(data_names); // Data join
       // Enter selection
       optionsDestination.enter().append("option").text(function(d) { return d.name; });
 
-  var svg = d3.select("#rightSide").append("svg")
+  var svg = d3.select("#countrydiv").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")

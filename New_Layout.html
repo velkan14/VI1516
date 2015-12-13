@@ -6,7 +6,7 @@
   <title>World Economy</title>
   <script src="lib/d3.v3.min.js"></script>
   <script src="JS/d3.geo.js"></script>
-  <script src="Map.js"></script>
+  <!-- <script src="Map.js"></script> -->
   <script src="Tree.js"></script>
   <script src="HeatMap.js"></script>
   <script src="Scatterplot.js"></script>
@@ -21,15 +21,15 @@
 
 <body>
   <div id="container">
-	<div id="slider" style="position: relative; padding: 20px;padding-bottom:10px">
+	<div id="slider" style="position: relative; padding-bottom:20px; padding-top:0; padding-left:20px; padding-right:20px">
         <div>
           <input type="text" id="range" value="" name="range" />
         </div>
       </div>
 	  
-    <div id="leftSide" style="width:49%; height:80%; float:left; background: rgba(255,255,255,0.7); border-radius: 20px 100px 20px 100px; z-index:1"> 
+    <div id="leftSide" style="width:49%; height:80%; float:left; background: rgba(255,255,255,0.7); border-radius: 20px 100px 20px 20px; z-index:1"> 
 		<ul class="vis" style="width:90%; height:80%; margin-left: 10px; margin-top: 15px">
-          <li><div id="mapvis" style=" position: absolute;width:45%; height:540px; z-index:11; display:none">World Map</div></li>
+          <li><div id="mapvis" style="position: absolute;width:45%; height:540px; z-index:11; display:none">World Map</div></li>
 		  <li><div id="chordvis" style=" position: absolute; width:45%; height: 540px; z-index:12; display:none">Chord</div></li>
 		  <li><div id="treevis" style=" position: absolute;  width:45%; height: 540px; z-index:13; display:none"></div></li>
 		  <li><div class="nav" id="hexNav">
@@ -86,7 +86,7 @@
 					</ul>
 					 
 	</div>
-	<div id="rightSide" style="width:49%; height:80%; float:right; background: rgba(255,255,255,0.7); margin-right:12px; border-radius:100px 20px 100px 20px; z-index:1"> 
+	<div id="rightSide" style="width:49%; height:80%; float:right; background: rgba(255,255,255,0.7); margin-right:12px; border-radius:100px 20px 20px 20px; z-index:1"> 
 	 
 		<ul class="vis" style="width:90%; height:80%; float:right; margin-right:25px; margin-top: 15px">
           <li><div id="countryvis" style=" position: absolute;width:45%; height:540px; z-index:11; display:none">Country</div></li>

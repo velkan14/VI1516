@@ -1,9 +1,9 @@
 function gen_tree() {
-    var w = 600;
-    var h = 600;
+    var w = 500;
+    var h = 500;
     var i = 0;
     var duration = 750;
-    var svg = d3.select("#leftSide")
+    var svg = d3.select("#treediv")
     .append("svg")
     .attr("width",w)
     .attr("height",h);
