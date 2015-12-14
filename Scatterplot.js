@@ -68,6 +68,14 @@ function genScatterPlot(){
     .domain(["Food and live animals", "Beverages and tobacco", "Crude materials"])
     .range(["#3ADF00", "#FE9A2E" , "#8A4B08"]);
 
+
+    var select  = d3.select("#scatterplotvis").append("select").on("change", change),
+        options = select.selectAll('option').data(["Imports", "Exports"]); // Data join
+    // Enter selection
+    options.enter().append("option").text(function(d) { return d; });
+    var typeTrade = "Imports";
+
+
   // add the graph canvas to the body of the webpage
   var svg = d3.select("#scatterplotvis").append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -103,15 +111,33 @@ function genScatterPlot(){
         .style("text-anchor", "end")
         .text("Imports");
 
-        update(1993,2013);
+
+        function change() {
+            var si   = select.property('selectedIndex'),
+                s    = options.filter(function (d, i) { return i === si }),
+                data = s.datum();
+                if(data == "Imports"){
+                  yValue = function(d) { return d.import_val;}
+                  typeTrade = "Imports";
+                } else {
+                  yValue = function(d) { return d.export_val;}
+                  typeTrade = "Exports";
+                }
+                update(minYear,maxYear);
+        }
+        var minYear = 1993, maxYear = 2013;
+        update(minYear,maxYear);
 
         //jQuery ---------------------------------------------------//
         var $range = $("#range");//.data("ionRangeSlider");
         $range.on("change", function (d) {
           var $this = $(this),
               value = $this.prop("value").split(';');
-          update(value[0], value[1]);
-
+          minYear = value[0];
+          maxYear = value[1];
+          update(minYear,maxYear);
+          //updateAxis(data);
+          //updateDots(data);
         });
         //-----------------------------------------------------------//
         function update(minYear, maxYear){
@@ -141,8 +167,9 @@ function genScatterPlot(){
           xScale.domain(data.map(function(d){return d.sitc_string;}));
           yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
           svg.select(".x.axis").call(xAxis);
-          svg.select(".y.axis").call(yAxis);
-
+          var y = svg.select(".y.axis");
+          y.call(yAxis);
+          y.select("text.label").text(typeTrade);
         }
 
       function updateDots(data){
