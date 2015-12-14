@@ -1,0 +1,19 @@
+
+svg {
+  width: 1280px;
+  height: 800px;
+  pointer-events: all;
+}
+
+circle {
+  background-color: black;
+}
+
+path {
+  fill: gray;
+  stroke: darkgray;
+}
+
+path:hover {
+	fill: orange;
+}

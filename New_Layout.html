@@ -11,15 +11,106 @@
   <script src="HeatMap.js"></script>
   <script src="Scatterplot.js"></script>
    <script src="graphs.js"></script>
+   <script type="text/javascript" src="bootstrapBtns/js/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript" src="bootstrapBtns/bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="slider/css/ion.rangeSlider.css">
   <link rel="stylesheet" href="slider/css/ion.rangeSlider.skinFlat.css">
   <link rel="stylesheet" href="slider/css/normalize.css">
   <link rel="stylesheet" href="graphs.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="bootstrapBtns/bootstrap/css/bootstrap.min.css" />
+   <link rel="stylesheet" type="text/css" href="bootstrapBtns/font-awesome/css/font-awesome.min.css" />
+   
 
 </head>
 
 <body>
+
+<style>
+
+.searchicon {
+    color:#5CB85C;
+}
+
+.items-collection{
+    margin:20px 0 0 0;
+}
+.items-collection label.btn-default.active{
+    background-color:#007ba7;
+    color:#FFF;
+}
+.items-collection label.btn-default{
+    width:90%;
+    border:1px solid #305891;
+    margin:5px; 
+    border-radius: 17px;
+    color: #305891;
+}
+.items-collection label .itemcontent{
+    width:100%;
+}
+.items-collection .btn-group{
+    width:90%
+}
+
+#c9.active {
+ background-color:#a6cee3;
+  color:#FFF;
+}
+
+#c8.active {
+ background-color:#1f78b4;
+  color:#FFF;
+}
+
+#c7.active {
+ background-color:#b2df8a;
+  color:#FFF;
+}
+
+#c6.active {
+ background-color:#33a02c;
+  color:#FFF;
+}
+
+#c5.active {
+ background-color:#fb9a99;
+  color:#FFF;
+}
+
+#c4.active {
+ background-color:#e31a1c;
+  color:#FFF;
+}
+
+#c3.active {
+ background-color:#fdbf6f;
+  color:#FFF;
+}
+
+#c2.active {
+ background-color:#ff7f00;
+  color:#FFF;
+}
+
+#c1.active {
+ background-color:#cab2d6;
+  color:#FFF;
+}
+
+#c0.active {
+ background-color:#6a3d9a;
+  color:#FFF;
+}
+
+#undo.active{
+background-color:white;
+color: crimson;
+box-shadow: 0 1px 2px 0 black;
+}
+
+</style>
+
   <div id="container">
 	<div id="slider" style="position: relative; padding-bottom:20px; padding-top:0; padding-left:20px; padding-right:20px">
         <div>
@@ -97,6 +188,91 @@
 		  <li><div id="rankvis" style=" position: absolute;  width:45%; height: 540px; z-index:13; display:none">Rank</div></li>
 		</ul>
 	</div>
+	
+	<div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="info-block block-info clearfix" style="width:1000px">
+                        <div data-toggle="buttons">
+                            <label class="btn btn-default" id="c0" style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-paw fa-2x"></span>
+                                     
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c1"  style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-coffee fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c2" style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-tree fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c3" style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-bolt fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c4" style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-tint fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c5"  style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-flask fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c6"  style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-paper-plane-o fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c7" style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-gear fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c8"  style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-suitcase fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="c9"  style="width:80px;border-radius:17px">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-money fa-2x"></span>
+                                   
+                                </div>
+                            </label>
+							<label class="btn btn-default" id="undo"  style="width:50px;border-radius:17px; color:crimson; border-color: crimson">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-undo fa-2x"></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+	
+	
 	</div>
 
     <script>
@@ -215,7 +391,17 @@
         });
 
         </script>
-
+<script>
+$(function () {
+    $('#search').on('keyup', function () {
+        var pattern = $(this).val();
+        $('.items-collection .items').hide();
+        $('.items-collection .items').filter(function () {
+            return $(this).text().match(new RegExp(pattern, 'i'));
+        }).show();
+    });
+});
+</script>
 
       </body>
       </html>
