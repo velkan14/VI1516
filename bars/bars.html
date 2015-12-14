@@ -123,7 +123,7 @@
 //      });
 
 //Chamada incial á funcao que processa o ficheiro e o apresenta
-bars("usa", 2000);
+bars("prt", 2013);
 
 
 
@@ -823,7 +823,7 @@ return zippedData;
 function rangeBars(input, years){
 
 data = input[years-1993];
-data2 = input[years-1993+10];
+data2 = input[2003-1993];
 
 
 
@@ -1091,11 +1091,9 @@ titleRight = chart.append("text")
         
 
 maxX = d3.max(zippedData);
-console.log(maxX);
 maxXX = d3.max(zippedData2);
 
 max = Math.max(maxX, maxXX);
-console.log(max);
 var x2 = d3.scale.linear()
     .domain([0, max])
     .range([0, 300]);
