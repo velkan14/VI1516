@@ -3,7 +3,7 @@ var data_sitcut;
 var data_names;
 var sitc;
 var data_sitc;
-
+var products = [];
 d3.tsv("data/country_names.tsv", function (data2) {
         data_names = data2;
 })
@@ -11,14 +11,14 @@ d3.tsv("data/country_names.tsv", function (data2) {
 d3.tsv("data/SITC4_english_structure.tsv", function (data){
     sitc = data;
     var array = [];
-    var root = {"parent":null, "children": array,"value": "Products", "depth": 0};
+    var root = {"parent":null, "children": array,"value": "Products", "depth": 0, "sitc": "-1"};
     for(var i = 0; i < data.length; i++){
         if(data[i].code.length == 1){
             var children = [];
-            var obj = {"parent":root, "children": null, "value": data[i].label, "depth": 1};
+            var obj = {"parent":root, "children": null, "value": data[i].label, "depth": 1, "sitc": data[i].code};
             for(var j = 0; j < data.length; j++){
                 if(data[j].code.length == 2 && data[j].code[0] == data[i].code){
-                    var child = {"parent":obj, "children": null, "value": data[j].label, "depth": 2}
+                    var child = {"parent":obj, "children": null, "value": data[j].label, "depth": 2, "sitc": data[j].code}
                     children.push(child);
                 }
             }
@@ -92,6 +92,12 @@ function getNameFromSitc(code){
           return sitc[i].label;
         }
     }
+}
+
+function getColorFromSitc(code){
+    var colors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a'];
+    var i = code.substring(0,1);
+    return colors[Number(i)];
 }
 
 function genChord(){

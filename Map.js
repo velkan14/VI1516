@@ -43,17 +43,17 @@ d3.json("data/world_countries.json", function(collection) {
 /*
 d3.csv("data/CountryPositions.csv", function(d1) {
   data1 = d1;
-  
+
   //probably won't be used
-  
-  
+
+
 });
 
 
 d3.csv("data/Trade_Partners.csv", function(d2) {
   data2 = d2;
-  
-  
+
+
   d3.csv("tops/1997.csv", function(error, data) {
   headerNames = d3.keys(data[0]);
   matchedRow = data.filter(function(d) { return d.country == countryToDisplay; });
@@ -68,20 +68,20 @@ d3.csv("data/Trade_Partners.csv", function(d2) {
   val3 = (+matchedRow[0].val3).toFixed(4);
   val4 = (+matchedRow[0].val4).toFixed(4);
   val5 = (+matchedRow[0].val5).toFixed(4);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
      rangeBars(returnedArray);
 });
-  
+
   svg.selectAll("path")
       .data(data2.origin)
     .enter().append("svg:path")
       .on("Click", function() {
-        
+
 		var x = {};
 		x.add(data2.destination);
 		//on country click,  reset map to original color, color clicked country in orange abd color partners (data2.destination) in black;
-		
+
       })
 });
 
@@ -91,10 +91,10 @@ d3.select(window)
     .on("mousemove", mousemove)
     .on("mouseup", mouseup);
 
-d3.select("select").on("change", function() {
+/*d3.select("select").on("change", function() {
   projection.mode(this.value).scale(scale[this.value]);
   refresh(750);
-});
+});*/
 
 var m0,
     o0;

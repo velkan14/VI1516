@@ -20,7 +20,7 @@ function genScatterPlot(){
     var sitcList = [1, 3, 4, 5, 6];
     var data = [];
     yeardata.forEach(function(d) {
-      sitcList.forEach(function(s){
+      products.forEach(function(s){
         if(d.sitc == s){
           data.push(d);
         }
@@ -63,16 +63,20 @@ function genScatterPlot(){
       .orient("left");
 
   // setup fill color
-  var cValue = function(d) { return d.sitc;},
+  var cValue = function(d) { return d.sitc_string;},
       color = d3.scale.ordinal()
     .domain(["Food and live animals", "Beverages and tobacco", "Crude materials"])
     .range(["#3ADF00", "#FE9A2E" , "#8A4B08"]);
 
 
-    var select  = d3.select("#scatterplotvis").append("select").on("change", change),
-        options = select.selectAll('option').data(["Imports", "Exports"]); // Data join
+    d3.selectAll("path.product.add").on("click", addProduct);
+
+
+
+    var selectTrade  = d3.select("#scatterplotvis").append("select").on("change", changetrade),
+        optionsTrade = selectTrade.selectAll('option').data(["Imports", "Exports"]); // Data join
     // Enter selection
-    options.enter().append("option").text(function(d) { return d; });
+    optionsTrade.enter().append("option").text(function(d) { return d; });
     var typeTrade = "Imports";
 
 
@@ -111,10 +115,29 @@ function genScatterPlot(){
         .style("text-anchor", "end")
         .text("Imports");
 
+        var minYear = 1993, maxYear = 2013;
+        update(minYear,maxYear);
 
-        function change() {
-            var si   = select.property('selectedIndex'),
-                s    = options.filter(function (d, i) { return i === si }),
+        function addProduct(d){
+          if(d.depth == 1){
+            if(d.children){
+              d.children.forEach(function(c){
+                if(products.indexOf(c.sitc) == -1) products.push(c.sitc);
+              });
+            } else if(d._children){
+              d._children.forEach(function(c){
+                if(products.indexOf(c.sitc) == -1) products.push(c.sitc);
+              });
+            }
+          } else if(d.depth == 2){
+            if(products.indexOf(d.sitc) == -1) products.push(d.sitc);
+          }
+          update(minYear, maxYear);
+        }
+
+        function changetrade() {
+            var si   = selectTrade.property('selectedIndex'),
+                s    = optionsTrade.filter(function (d, i) { return i === si }),
                 data = s.datum();
                 if(data == "Imports"){
                   yValue = function(d) { return d.import_val;}
@@ -125,8 +148,8 @@ function genScatterPlot(){
                 }
                 update(minYear,maxYear);
         }
-        var minYear = 1993, maxYear = 2013;
-        update(minYear,maxYear);
+
+
 
         //jQuery ---------------------------------------------------//
         var $range = $("#range");//.data("ionRangeSlider");
@@ -152,7 +175,7 @@ function genScatterPlot(){
             var sitcList = ["1", "2", "3", "4", "8"];
             var data = [];
             yeardata.forEach(function(d) {
-              sitcList.forEach(function(s){
+              products.forEach(function(s){
                 if(d.sitc_string == s){
                   data.push(d);
                 }
@@ -203,7 +226,7 @@ function genScatterPlot(){
 
         dotEnter.append("circle")
             .attr("r", 1e-6)
-            .style("fill", function(d) { return color(cValue(d));})
+            .style("fill", function(d) { return getColorFromSitc(cValue(d));})
 
         // Transition nodes to their new position.
         var dotUpdate = dot.transition()

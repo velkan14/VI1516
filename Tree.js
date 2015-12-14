@@ -41,7 +41,20 @@ function gen_tree() {
       var nodeEnter = node.enter().append("g")
           .attr("class", "node")
           .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+          ;
+
+      nodeEnter.append("circle")
+          .attr("r", 1e-6)
           .on("click", click)
+          .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+      nodeEnter.append("path")
+          .attr("class", "product add")
+          .attr("transform", function(d) { return "translate(" + 11 + "," + 17 + ")"; })
+          .attr("d", 'M0,-5 V5 M-5,0 H5')
+          .style("stroke-width", "0");
+
+      nodeEnter.append("text")
           .on("mouseover", function(d){
               tooltip.transition()
                  .duration(200)
@@ -54,16 +67,9 @@ function gen_tree() {
                             .duration(500)
                             .style("opacity", 0);
                    })
-          ;
-
-      nodeEnter.append("circle")
-          .attr("r", 1e-6)
-          .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-      nodeEnter.append("text")
           .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
           .attr("dy", ".35em")
-          .attr("dx", "2.5em")
+          .attr("dx", "3.5em")
           .attr("text-anchor", "start")
           .text(function(d) { var s = d.value; if(s.length > 30)return s.substring(0, 30) + "..."; else return s; })
           .style("fill-opacity", 1e-6);
@@ -75,7 +81,11 @@ function gen_tree() {
 
       nodeUpdate.select("circle")
           .attr("r", 10)
-          .style("fill", function(d) { if(d.depth == 1) return d.color; else if (d.depth == 2) return d.parent.color; else return "white"; });
+          .style("fill", function(d) { if(d.depth == 0) return "white"; else return getColorFromSitc(d.sitc); });
+
+      nodeUpdate.select("path")
+          .style("stroke-width", "2")
+          .style("stroke", function(d) { if(d.depth == 0) return "white"; else return getColorFromSitc(d.sitc); });
 
       nodeUpdate.select("text")
           .style("fill-opacity", 1);
@@ -145,11 +155,12 @@ function gen_tree() {
           n.children = null;
         }
       });
+
       update(d);
     }
 
     function closeAll(d, i, a){
-      if(i != 0)
+      //if(i != 0)
       if (d.children) {
         //fechar
         d._children = d.children;

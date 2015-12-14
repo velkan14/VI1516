@@ -39,7 +39,7 @@ h1 {
 }
 
 
-.link {
+.link{
   fill: none;
   stroke: gray;
   stroke-width: 1.5px;
@@ -48,8 +48,8 @@ h1 {
 
 .tooltip {
   position: absolute;
-  width: 150px;
-  height: 90px;
+  width: 110px;
+  height: 60px;
   font-size: 12px;
   pointer-events: none;
   text-align: center;
@@ -99,4 +99,3 @@ h1 {
     text.axis-worktime {
       fill: #000;
     }
-
