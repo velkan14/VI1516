@@ -162,7 +162,7 @@ function genHeatMap(){
 
         legend.append("text")
           .attr("class", "mono")
-          .text(function(d) { return "≥ " + (d/1000000000).toFixed(1); })
+          .text(function(d) { return "≥ " + (d/1000000).toFixed(1); })
           .attr("x", function(d, i) { return legendElementWidth * i; })
           .attr("y", height + gridSize);
 

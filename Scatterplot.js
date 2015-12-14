@@ -103,7 +103,17 @@ function genScatterPlot(){
         .style("text-anchor", "end")
         .text("Imports");
 
-        update(2000,2002);
+        update(1993,2013);
+
+        //jQuery ---------------------------------------------------//
+        var $range = $("#range");//.data("ionRangeSlider");
+        $range.on("change", function (d) {
+          var $this = $(this),
+              value = $this.prop("value").split(';');
+          update(value[0], value[1]);
+
+        });
+        //-----------------------------------------------------------//
         function update(minYear, maxYear){
           // load data
             var yeardata = [];
@@ -113,11 +123,11 @@ function genScatterPlot(){
                     yeardata.push(d);
                   }
             });
-            var sitcList = [1, 21];
+            var sitcList = ["1", "2", "3", "4", "8"];
             var data = [];
             yeardata.forEach(function(d) {
               sitcList.forEach(function(s){
-                if(d.sitc == s){
+                if(d.sitc_string == s){
                   data.push(d);
                 }
               })
