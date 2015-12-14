@@ -1,0 +1,122 @@
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: black;
+  font: 18px sans-serif;
+  text-anchor: start;
+}
+
+.chart .label2 {
+  fill: black;
+  font: 18px sans-serif;
+  text-anchor: start;
+}
+
+.chart .title {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+
+.chart .titleCountry {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: middle;
+}
+
+.chart .titleYear {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleYear2 {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleClose {
+  fill: black;
+  font: 30px sans-serif;
+  text-anchor: end;
+}
+
+/*.chart .titleRight {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleRight2 {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleLeft {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleLeft2 {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}*/
+
+.title {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 200px;                  
+  height: 100px;                 
+  padding: 10px;             
+  font: 22px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
+
+.demoSelection {
+    position: absolute;
+    width: 100px;
+    top:70px;
+    left:170px;
+    width:200px;
+    height:30px;
+    z-index: 10;
+}
+
+.demoSelection2 {
+    position: absolute;
+    width: 100px;
+    top:70px;
+    left:600px;
+    width:200px;
+    height:30px;
+    z-index: 10;
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
