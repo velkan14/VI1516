@@ -28,7 +28,7 @@ var svg = d3.select("#mapvis").append("svg:svg")
     .attr("height", 500)
     .on("mousedown", mousedown);
 
-d3.json("world_countries.json", function(collection) {
+d3.json("data/world_countries.json", function(collection) {
   feature = svg.selectAll("path")
       .data(collection.features)
     .enter().append("svg:path")
