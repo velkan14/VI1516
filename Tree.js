@@ -84,7 +84,7 @@ function gen_tree() {
           .style("fill", function(d) { if(d.depth == 0) return "white"; else return getColorFromSitc(d.sitc); });
 
       nodeUpdate.select("path")
-          .style("stroke-width", "2")
+          .style("stroke-width", "4")
           .style("stroke", function(d) { if(d.depth == 0) return "white"; else return getColorFromSitc(d.sitc); });
 
       nodeUpdate.select("text")

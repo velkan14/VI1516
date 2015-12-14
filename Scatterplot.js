@@ -122,15 +122,21 @@ function genScatterPlot(){
           if(d.depth == 1){
             if(d.children){
               d.children.forEach(function(c){
-                if(products.indexOf(c.sitc) == -1) products.push(c.sitc);
+                var index = products.indexOf(c.sitc)
+                if(index == -1) products.push(c.sitc);
+                else products.splice(index, 1);
               });
             } else if(d._children){
               d._children.forEach(function(c){
-                if(products.indexOf(c.sitc) == -1) products.push(c.sitc);
+                var index = products.indexOf(c.sitc)
+                if(index == -1) products.push(c.sitc);
+                else products.splice(index, 1);
               });
             }
           } else if(d.depth == 2){
-            if(products.indexOf(d.sitc) == -1) products.push(d.sitc);
+            var index = products.indexOf(d.sitc)
+            if(index == -1) products.push(d.sitc);
+            else products.splice(index, 1);
           }
           update(minYear, maxYear);
         }
@@ -164,6 +170,7 @@ function genScatterPlot(){
         });
         //-----------------------------------------------------------//
         function update(minYear, maxYear){
+          d3.selectAll("path.product.add").on("click", addProduct);
           // load data
             var yeardata = [];
             dddd.forEach(function(d) {
