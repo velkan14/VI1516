@@ -11,7 +11,13 @@
 .chart .label {
   fill: black;
   font: 18px sans-serif;
-  text-anchor: end;
+  text-anchor: start;
+}
+
+.chart .label2 {
+  fill: black;
+  font: 18px sans-serif;
+  text-anchor: start;
 }
 
 .chart .title {
@@ -20,19 +26,20 @@
   text-anchor: end;
 }
 
-.chart .title {
-  fill: black;
-  font: 40px sans-serif;
-  text-anchor: end;
-}
 
 .chart .titleCountry {
   fill: black;
   font: 40px sans-serif;
-  text-anchor: end;
+  text-anchor: middle;
 }
 
 .chart .titleYear {
+  fill: black;
+  font: 40px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleYear2 {
   fill: black;
   font: 40px sans-serif;
   text-anchor: end;
@@ -44,7 +51,19 @@
   text-anchor: end;
 }
 
+.chart .titleRight2 {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
 .chart .titleLeft {
+  fill: black;
+  font: 50px sans-serif;
+  text-anchor: end;
+}
+
+.chart .titleLeft2 {
   fill: black;
   font: 50px sans-serif;
   text-anchor: end;
@@ -56,10 +75,21 @@
   text-anchor: end;
 }
 
-
-.bar:hover {
-  fill: brown;
+.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 200px;                  
+  height: 100px;                 
+  padding: 10px;             
+  font: 22px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
 }
+
+
+
 
 
 .axis path,
@@ -78,14 +108,35 @@
 
 
 
+// chart.append("text")
+//     .attr("class", "new")
+//     .attr("x", titleX + -105)
+//     .attr("y", titleY + 80)
+//     .attr("text-anchor", "middle")
+//     .style("fill", "black")
+//     .text("AAAAA")
+//     .on("click", function() { 
 
+//       d3.select("svg").remove();
+//       bars("usa", 1993);
+
+//      });
 
 //Chamada incial á funcao que processa o ficheiro e o apresenta
-bars("prt", 1993);
+bars("usa", 2000);
+
+
+
+
+
 
 
 function bars(vis_title, years) 
 {
+//CAREFULL
+d3.select("svg").remove();
+
+  var years2 = 2003;
 
   var country,
       headerNames,
@@ -772,6 +823,7 @@ return zippedData;
 function rangeBars(input, years){
 
 data = input[years-1993];
+data2 = input[years-1993+10];
 
 
 
@@ -779,21 +831,23 @@ var m = d3.map();
 
 m.set("ago","Angola"); m.set("bdi","Burundi"); m.set("ben","Benin"); m.set("bfa","Burkina Faso"); m.set("bwa","Botswana"); m.set("caf","Central African Republic"); m.set("civ","Cote d'Ivoire"); m.set("cmr","Cameroon"); m.set("cod","Democratic Republic of the Congo"); m.set("cog","Republic of the Congo"); m.set("com","Comoros"); m.set("cpv","Cape Verde"); m.set("dji","Djibouti"); m.set("dza","Algeria"); m.set("egy","Egypt"); m.set("eri","Eritrea"); m.set("esh","Western Sahara"); m.set("eth","Ethiopia"); m.set("gab","Gabon"); m.set("gha","Ghana"); m.set("gin","Guinea"); m.set("gmb","Gambia"); m.set("gnb","Guinea-Bissau"); m.set("gnq","Equatorial Guinea"); m.set("ken","Kenya"); m.set("lbr","Liberia"); m.set("lby","Libya"); m.set("lso","Lesotho"); m.set("mar","Morocco"); m.set("mdg","Madagascar"); m.set("mli","Mali"); m.set("moz","Mozambique"); m.set("mrt","Mauritania"); m.set("mus","Mauritius"); m.set("mwi","Malawi"); m.set("myt","Mayotte"); m.set("nam","Namibia"); m.set("ner","Niger"); m.set("nga","Nigeria"); m.set("reu","Reunion"); m.set("rwa","Rwanda"); m.set("sdn","Sudan"); m.set("sen","Senegal"); m.set("shn","Saint Helena"); m.set("sle","Sierra Leone"); m.set("som","Somalia"); m.set("ssd","South Sudan"); m.set("stp","Sao Tome and Principe"); m.set("swz","Swaziland"); m.set("syc","Seychelles"); m.set("tcd","Chad"); m.set("tgo","Togo"); m.set("tun","Tunisia"); m.set("tza","Tanzania"); m.set("uga","Uganda"); m.set("zaf","South Africa"); m.set("zmb","Zambia"); m.set("zwe","Zimbabwe"); m.set("ata","Antarctica"); m.set("atf","French South Antarctic Territory"); m.set("bvt","Bouvet Island"); m.set("hmd","Heard Island and McDonald Islands"); m.set("sgs","South Georgia South Sandwich Islands"); m.set("afg","Afghanistan"); m.set("are","United Arab Emirates"); m.set("arm","Armenia"); m.set("aze","Azerbaijan"); m.set("bgd","Bangladesh"); m.set("bhr","Bahrain"); m.set("brn","Brunei"); m.set("btn","Bhutan"); m.set("cck","Cocos (Keeling) Islands"); m.set("chn","China"); m.set("cxr","Christmas Island"); m.set("cyp","Cyprus"); m.set("geo","Georgia"); m.set("hkg","Hong Kong"); m.set("idn","Indonesia"); m.set("ind","India"); m.set("iot","British Indian Ocean Territory"); m.set("irn","Iran"); m.set("irq","Iraq"); m.set("isr","Israel"); m.set("jor","Jordan"); m.set("jpn","Japan"); m.set("kaz","Kazakhstan"); m.set("kgz","Kyrgyzstan"); m.set("khm","Cambodia"); m.set("kor","South Korea"); m.set("kwt","Kuwait"); m.set("lao","Laos"); m.set("lbn","Lebanon"); m.set("lka","Sri Lanka"); m.set("mac","Macau"); m.set("mdv","Maldives"); m.set("mid","Midway"); m.set("mmr","Burma"); m.set("mng","Mongolia"); m.set("mys","Malaysia"); m.set("npl","Nepal"); m.set("omn","Oman"); m.set("pak","Pakistan"); m.set("phl","Philippines"); m.set("prk","North Korea"); m.set("pse","Palestine"); m.set("qat","Qatar"); m.set("sau","Saudi Arabia"); m.set("sgp","Singapore"); m.set("syr","Syria"); m.set("tha","Thailand"); m.set("tjk","Tajikistan"); m.set("tkm","Turkmenistan"); m.set("tls","Timor-Leste"); m.set("tur","Turkey"); m.set("twn","Taiwan"); m.set("uzb","Uzbekistan"); m.set("vnm","Vietnam"); m.set("yar","Yemen Arab Republic"); m.set("yem","Yemen"); m.set("ymd","Democratic Yemen"); m.set("alb","Albania"); m.set("and","Andorra"); m.set("aut","Austria"); m.set("bel","Belgium"); m.set("bgr","Bulgaria"); m.set("bih","Bosnia and Herzegovina"); m.set("blr","Belarus"); m.set("blx","Belgium-Luxembourg"); m.set("che","Switzerland"); m.set("chi","Channel Islands"); m.set("csk","Czechoslovakia"); m.set("cze","Czech Republic"); m.set("ddr","Democratic Republic of Germany"); m.set("deu","Germany"); m.set("dnk","Denmark"); m.set("esp","Spain"); m.set("est","Estonia"); m.set("fdr","Federal Republic of Germany"); m.set("fin","Finland"); m.set("fra","France"); m.set("fro","Faroe Islands"); m.set("gbr","United Kingdom"); m.set("gib","Gibraltar"); m.set("grc","Greece"); m.set("hrv","Croatia"); m.set("hun","Hungary"); m.set("imn","Isle of Man"); m.set("irl","Ireland"); m.set("isl","Iceland"); m.set("ita","Italy"); m.set("ksv","Kosovo"); m.set("lie","Liechtenstein"); m.set("ltu","Lithuania"); m.set("lux","Luxembourg"); m.set("lva","Latvia"); m.set("mco","Monaco"); m.set("mda","Moldova"); m.set("mkd","Macedonia"); m.set("mlt","Malta"); m.set("mne","Montenegro"); m.set("nld","Netherlands"); m.set("nor","Norway"); m.set("pol","Poland"); m.set("prt","Portugal"); m.set("rou","Romania"); m.set("rus","Russia"); m.set("scg","Serbia and Montenegro"); m.set("sjm","Svalbard"); m.set("smr","San Marino"); m.set("srb","Serbia"); m.set("sun","USSR"); m.set("svk","Slovakia"); m.set("svn","Slovenia"); m.set("swe","Sweden"); m.set("ukr","Ukraine"); m.set("vat","Holy See (Vatican City)"); m.set("yug","Yugoslavia"); m.set("abw","Aruba"); m.set("aia","Anguilla"); m.set("ant","Netherlands Antilles"); m.set("atg","Antigua and Barbuda"); m.set("bes","Bonaire"); m.set("bhs","Bahamas"); m.set("blm","Saint Barth√©lemy"); m.set("blz","Belize"); m.set("bmu","Bermuda"); m.set("brb","Barbados"); m.set("can","Canada"); m.set("cri","Costa Rica"); m.set("cub","Cuba"); m.set("cuw","Cura√ßao"); m.set("cym","Cayman Islands"); m.set("dma","Dominica"); m.set("dom","Dominican Republic"); m.set("grd","Grenada"); m.set("grl","Greenland"); m.set("gtm","Guatemala"); m.set("hnd","Honduras"); m.set("hti","Haiti"); m.set("jam","Jamaica"); m.set("kna","Saint Kitts and Nevis"); m.set("lca","Saint Lucia"); m.set("maf","Saint Maarten"); m.set("mex","Mexico"); m.set("msr","Montserrat"); m.set("mtq","Martinique"); m.set("naa","Netherland Antilles and Aruba"); m.set("nic","Nicaragua"); m.set("pan","Panama"); m.set("pci","Pacific Island (US)"); m.set("pcz","Panama Canal Zone"); m.set("pri","Puerto Rico"); m.set("slv","El Salvador"); m.set("spm","Saint Pierre and Miquelon"); m.set("tca","Turks and Caicos Islands"); m.set("tto","Trinidad and Tobago"); m.set("umi","United States Minor Outlying Islands"); m.set("usa","United States"); m.set("vct","Saint Vincent and the Grenadines"); m.set("vgb","British Virgin Islands"); m.set("vir","Virgin Islands"); m.set("asm","American Samoa"); m.set("aus","Australia"); m.set("cok","Cook Islands"); m.set("fji","Fiji"); m.set("fsm","Micronesia"); m.set("glp","Guadeloupe"); m.set("gum","Guam"); m.set("kir","Kiribati"); m.set("mhl","Marshall Islands"); m.set("mnp","Northern Mariana Islands"); m.set("ncl","New Caledonia"); m.set("nfk","Norfolk Island"); m.set("niu","Niue"); m.set("nru","Nauru"); m.set("nzl","New Zealand"); m.set("pcn","Pitcairn Islands"); m.set("plw","Palau"); m.set("png","Papua New Guinea"); m.set("pyf","French Polynesia"); m.set("slb","Solomon Islands"); m.set("tkl","Tokelau"); m.set("ton","Tonga"); m.set("tuv","Tuvalu"); m.set("vut","Vanuatu"); m.set("wlf","Wallis and Futuna"); m.set("wsm","Samoa"); m.set("arg","Argentina"); m.set("bol","Bolivia"); m.set("bra","Brazil"); m.set("chl","Chile"); m.set("col","Colombia"); m.set("ecu","Ecuador"); m.set("flk","Falkland Islands"); m.set("guf","French Guiana"); m.set("guy","Guyana"); m.set("per","Peru"); m.set("pry","Paraguay"); m.set("sur","Suriname"); m.set("ury","Uruguay"); m.set("ven","Venezuela"); m.set("wld","World"); m.set("xxa","Areas");
 
+var p = d3.map();
 
+p.set("0","Food and live animals"); p.set("0","Live animals other than animals of division 03"); p.set("1","Meat and meat preparations"); p.set("2","Dairy products and birdsí eggs"); p.set("3","Fish (not marine mammals), crustaceans, molluscs and aquatic invertebrates, and preparations thereof"); p.set("4","Cereals and cereal preparations"); p.set("5","Vegetables and fruit"); p.set("6","Sugars, sugar preparations and honey"); p.set("7","Coffee, tea, cocoa, spices, and manufactures thereof"); p.set("8","Feeding stuff for animals (not including unmilled cereals)"); p.set("9","Miscellaneous edible products and preparations"); p.set("1","Beverages and tobacco"); p.set("11","Beverages"); p.set("12","Tobacco and tobacco manufactures"); p.set("2","Crude materials, inedible, except fuels"); p.set("21","Hides, skins and furskins, raw"); p.set("22","Oil-seeds and oleaginous fruits"); p.set("23","Crude rubber (including synthetic and reclaimed)"); p.set("24","Cork and wood"); p.set("25","Pulp and waste paper"); p.set("26","Textile fibres (other than wool tops and other combed wool) and their wastes (not manufactured into yarn or fabric)"); p.set("27","Crude fertilizers, other than those of Division 56, and crude minerals (excluding coal, petroleum and precious stones)"); p.set("28","Metalliferous ores and metal scrap"); p.set("29","Crude animal and vegetable materials, n.e.s."); p.set("3","Mineral fuels, lubricants and related materials"); p.set("32","Coal, coke and briquettes"); p.set("33","Petroleum, petroleum products and related materials"); p.set("34","Gas, natural and manufactured"); p.set("35","Electric current"); p.set("4","Animal and vegetable oils, fats and waxes"); p.set("41","Animal oils and fats"); p.set("42","Fixed vegetable fats and oils, crude, refined or fractionated"); p.set("43","Animal or vegetable fats and oils, processed; waxes of animal or vegetable origin; inedible mixtures or preparations of animal or vegetable fats or oils, n.e.s."); p.set("5","Chemicals and related products, n.e.s."); p.set("51","Organic chemicals"); p.set("52","Inorganic chemicals"); p.set("53","Dyeing, tanning and colouring materials"); p.set("54","Medicinal and pharmaceutical products"); p.set("55","Essential oils and resinoids and perfume materials; toilet, polishing and cleansing preparations"); p.set("56","Fertilizers (other than those of group 272)"); p.set("57","Plastics in primary forms"); p.set("58","Plastics in non-primary forms"); p.set("59","Chemical materials and products, n.e.s."); p.set("6","Manufactured goods classified chiefly by material"); p.set("61","Leather, leather manufactures, n.e.s., and dressed furskins"); p.set("62","Rubber manufactures, n.e.s."); p.set("63","Cork and wood manufactures (excluding furniture)"); p.set("64","Paper, paperboard and articles of paper pulp, of paper or of paperboard"); p.set("65","Textile yarn, fabrics, made-up articles, n.e.s., and related products"); p.set("66","Non-metallic mineral manufactures, n.e.s."); p.set("67","Iron and steel"); p.set("68","Non-ferrous metals"); p.set("69","Manufactures of metals, n.e.s."); p.set("7","Machinery and transport equipment"); p.set("71","Power-generating machinery and equipment"); p.set("72","Machinery specialized for particular industries"); p.set("73","Metalworking machinery"); p.set("74","General industrial machinery and equipment, n.e.s., and machine parts, n.e.s."); p.set("75","Office machines and automatic data-processing machines"); p.set("76","Telecommunications and sound-recording and reproducing apparatus and equipment"); p.set("77","Electrical machinery, apparatus and appliances, n.e.s., and electrical parts thereof (including non-electrical counterparts, n.e.s., of electrical household-type equipment)"); p.set("78","Road vehicles (including air-cushion vehicles)"); p.set("79","Other transport equipment"); p.set("8","Miscellaneous manufactured articles"); p.set("81","Prefabricated buildings; sanitary, plumbing, heating and lighting fixtures and fittings, n.e.s."); p.set("82","Furniture and parts thereof; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings"); p.set("83","Travel goods, handbags and similar containers"); p.set("84","Articles of apparel and clothing accessories"); p.set("85","Footwear"); p.set("87","Professional, scientific and controlling instruments and apparatus, n.e.s."); p.set("88","Photographic apparatus, equipment and supplies and optical goods, n.e.s.; watches and clocks"); p.set("89","Miscellaneous manufactured articles, n.e.s."); p.set("9","Commodities and transactions not classified elsewhere in the SITC"); p.set("91","Postal packages not classified according to kind"); p.set("93","Special transactions and commodities not classified according to kind"); p.set("96","Coin (other than gold coin), not being legal tender"); p.set("97","Gold, non-monetary (excluding gold ores and concentrates)");
 
 
 
 
 var chartWidth       = 300,
-    barHeight        = 40,
-    groupHeight      = barHeight * data.series.length,
-    gapBetweenGroups = 10,
-    spaceForLabels   = 150,
+    barHeight        = 60,
+    groupHeight      = barHeight * 10,
+    gapBetweenGroups = 30,
+    spaceForLabels   = 500,
     spaceForTitle    = 100,
     marginWidth      = 0,
     marginHeight     = 150,
     titleX           = 290,
-    titleY           = -100;
+    titleY           = -110;
 
 var svg = d3.select("body").append("svg")
     .attr("class", "chart")
@@ -804,23 +858,34 @@ var svg = d3.select("body").append("svg")
 
 // Zip the series data together (first values, second values, etc.)
 zippedData = zipData(data);
+zippedData2 = zipData(data2);
 
 // Color scale
 var color = d3.scale.category20();
-var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
+var chartHeight = barHeight * 10 + gapBetweenGroups * 10;
+
+
+maxX = d3.max(zippedData);
+maxXX = d3.max(zippedData2);
+
+max = Math.max(maxX, maxXX);
 
 var x = d3.scale.linear()
-    .domain([0, d3.max(zippedData)])
-    .range([0, chartWidth]);
+    .domain([0, max])
+    .range([0, 300]);   
+
+
 
 var y = d3.scale.linear()
-    .range([chartHeight + gapBetweenGroups, 0]);
+    .range([chartHeight/2 + gapBetweenGroups/2, 0]);
 
 var yAxis = d3.svg.axis()
     .scale(y)
     .tickFormat('')
     .tickSize(0)
     .orient("left");
+
+
 
 // Specify the chart area and dimensions
 var chart = d3.select(".chart")
@@ -835,6 +900,23 @@ var bar = chart.selectAll("g")
       return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data.series.length))) + ")";
     });
 
+
+var bar2 = chart.selectAll("g2")
+    .data(zippedData2)
+    .enter().append("g")
+    .attr("transform", function(d, i) {
+      return "translate(" + spaceForLabels + "," + (barHeight-1 +(i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data2.series.length)))) + ") rotate(180)";
+      
+    });
+    
+
+
+var div = d3.select("body").append("div")   
+         .attr("class", "tooltip")               
+        .style("opacity", 0);
+
+
+
 // Create rectangles of the correct width
 bar.append("rect")
     .attr("fill", function(d,i) { return color(i % data.series.length); })
@@ -842,75 +924,189 @@ bar.append("rect")
     .attr("width", x)
     .attr("height", barHeight - 1);
 
-// Add text label in bar
+bar2v = bar2.append("rect")
+    .attr("fill", function(d,i) { return color(i % data2.series.length); })
+    .attr("class", "bar2")
+    .attr("width", x)
+    .attr("height", barHeight - 1)
+    .style("visibility", "hidden");
+
+
+
+// LABEL IN BAR
+
 bar.append("text")
     .attr("class", "insideText")
-    .attr("x", 55)
+    .attr("x", 10)
     .attr("y", barHeight / 2)
-    .attr("fill", "red")
     .attr("dy", ".35em")
-    .style("font-size", "12px")//Tamanho do texto dentro das barras
-    .style("color", "black")
+    .style("text-anchor", "start")
+    .style("font-size", "14px")//Tamanho do texto dentro das barras
+    .style("fill", "white")
     .text(function(d) { return "$"+d+"MM"; });
 
-// Draw labels
+insideText2 = bar2.append("text")
+    .data(zippedData2)
+    .attr("class", "insideText2")
+    .attr("x", 0)
+    .attr("y", barHeight / 2)
+    .attr("dy", ".35em")
+    .attr("transform", function(d, i) {
+      return "translate(10,60) rotate(180)";
+    })
+    .style("visibility", "hidden")
+    .style("text-anchor", "end")
+    .style("font-size", "14px")//Tamanho do texto dentro das barras
+    .style("fill", "white")
+    .text(function(d) { return "$"+d+"MM"; });
+
+
+// LABEL
+
 bar.append("text")
     .attr("class", "label")
-    .attr("x", function(d) { return - 10; })
-    .attr("y", groupHeight / 2)
+    .attr("x", function(d) { return 20; })
+    .attr("y", -12)
     .attr("dy", ".35em")
     .text(function(d,i) {
       if (i % data.series.length === 0)
-        return data.labels[Math.floor(i/data.series.length)];
+        return p.get(data.labels[Math.floor(i/data.series.length)]).substring(0,12)+'...';
       else
-        return ""});
+        return ""})
+        .on("mouseover", function(d, i) {      
+                div.transition()        
+                .duration(200)      
+                .style("opacity", .9); 
+                div.html(p.get(data.labels[Math.floor(i/data.series.length)]))  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px")
+                .style("opacity", 1);  
+              })                  
+        .on("mouseout", function(d) {       
+                div.transition()        
+                .duration(200)      
+                .style("opacity", 0); 
+        });
 
-//Linha vertical entre a legenda e as barras
+
+label2 = bar.append("text")
+    .attr("class", "label2")
+    .attr("x", function(d) { return -130  ; })
+    .attr("y", -12)
+    .attr("dy", ".35em")
+    .style("visibility", "hidden")
+    .text(function(d,i) {
+      if (i % data2.series.length === 0)
+        return p.get(data2.labels[Math.floor(i/data2.series.length)]).substring(0,12)+'...';
+      else
+        return ""})
+        .on("mouseover", function(d, i) {      
+                div.transition()        
+                .duration(200)      
+                .style("opacity", .9); 
+                div.html(p.get(data2.labels[Math.floor(i/data2.series.length)]))  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px")
+                .style("opacity", 1);  
+              })                  
+        .on("mouseout", function(d) {       
+                div.transition()        
+                .duration(200)      
+                .style("opacity", 0); 
+        });
+
+
+
+
+
+// VERTICAL LINE
+
 chart.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
 
 
-//Titulo, usa o style .title definido no topo
+
+
+
+
+//Titulo
+
 chart.append("text")
       .attr("class", "titleCountry")
-      .attr("x", titleX+35)
+      .attr("x", titleX + 200)
       .attr("y", titleY)
       .text(m.get(vis_title));
+    
 
-             //NEW
 //Ano no titulo
+
 chart.append("text")
     .attr("class", "titleYear")
-    .attr("x", titleX)
-    .attr("y", titleY + 60)
+    .attr("x", titleX + 455)
+    .attr("y", titleY + 40)
+    .attr("text-anchor", "middle")
     .text(years);
 
-chart.append("text")
-    .attr("class", "titleRight")
-    .attr("x", titleX + 55)
-    .attr("y", titleY + 57)
+
+
+titleYear2 = chart.append("text")
+    .attr("class", "titleYear2")
+    .attr("x", titleX + 20)
+    .attr("y", titleY +40)
     .attr("text-anchor", "middle")
+    .text("+Add")
+    .on("click", function(d) {       
+         titleYear2.text("2003");
+         bar2v.style("visibility", "visible");
+         insideText2.style("visibility", "visible");
+         label2.style("visibility", "visible");
+         titleRight2.style("visibility", "visible");
+         titleLeft2.style("visibility", "visible");
+    });    
+
+
+
+
+//>>>>>>>>
+
+titleRight = chart.append("text")
+    .attr("class", "titleRight")
+    .attr("x", titleX + 490)
+    .attr("y", titleY + 40)
     .text(">")
+    .on("mouseover", function(d, i) {          
+     titleRight.style("fill", "#3182bd")
+              })
+    .on("mouseout", function(d, i) {          
+     titleRight.style("fill", "black")
+              })
     .on("click", function() { 
 
       years = years +1;
       if(years>2013){years=2013};
 
-
         zippedData = zipData(input[years-1993]);
         
 
-         var x2 = d3.scale.linear()
-         .domain([0, d3.max(zippedData)])
-         .range([0, chartWidth]);
+maxX = d3.max(zippedData);
+console.log(maxX);
+maxXX = d3.max(zippedData2);
+
+max = Math.max(maxX, maxXX);
+console.log(max);
+var x2 = d3.scale.linear()
+    .domain([0, max])
+    .range([0, 300]);
 
            svg.selectAll("g").select("rect")
                .data(zippedData)
+                     
                .each(function(d, i) {
-                d3.select(this).attr("width", x2(zippedData[i]));
+                d3.select(this).transition().delay(100).attr("width", x2(zippedData[i]));
                 });
+
 
         svg.selectAll("g").select("text.insideText")
             .each(function(d, i) {
@@ -919,7 +1115,7 @@ chart.append("text")
 
         svg.selectAll("g").select("text.label")
             .each(function(d, i) {
-                d3.select(this).text(input[years-1993].labels[i]);
+                d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
             }); 
 
         svg.select("text.titleYear")
@@ -928,12 +1124,84 @@ chart.append("text")
             }); 
      });
 
-chart.append("text")
+
+
+titleRight2 = chart.append("text")
+    .attr("class", "titleRight2")
+    .attr("x", titleX + 65)
+    .attr("y", titleY + 40)
+    .style("visibility", "hidden")
+    .text(">")
+    .on("mouseover", function(d, i) {          
+     titleRight2.style("fill", "#3182bd")
+              })
+    .on("mouseout", function(d, i) {          
+     titleRight2.style("fill", "black")
+              })
+    .on("click", function() { 
+
+      years2 = years2 +1;
+      if(years2>2013){years2=2013};
+
+        zippedData2 = zipData(input[years2-1993]);
+        
+
+         maxX = d3.max(zippedData);
+maxXX = d3.max(zippedData2);
+
+max = Math.max(maxX, maxXX);
+
+var x2 = d3.scale.linear()
+    .domain([0, max])
+    .range([0, 300]);
+
+           bar2v
+               .data(zippedData2)
+                     
+               .each(function(d, i) {
+                d3.select(this).transition().delay(100).attr("width", x2(zippedData2[i]));
+                });
+
+
+        insideText2
+            .each(function(d, i) {
+                d3.select(this).text("$"+zippedData2[i]+"MM");
+            });     
+
+        label2
+            .each(function(d, i) {
+                d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
+            }); 
+
+        titleYear2
+            .each(function(d, i) {
+                d3.select(this).text(years2);
+            }); 
+     });
+
+
+
+
+
+
+
+
+
+
+
+titleLeft = chart.append("text")
     .attr("class", "titleLeft")
-    .attr("x", titleX + -105)
-    .attr("y", titleY + 57)
+    .attr("x", titleX + 365)
+    .attr("y", titleY + 40)
     .attr("text-anchor", "middle")
+
     .text("<")
+    .on("mouseover", function(d, i) {          
+     titleLeft.style("fill", "#3182bd")
+              })
+    .on("mouseout", function(d, i) {          
+     titleLeft.style("fill", "black")
+              })
     .on("click", function() { 
 
       years = years - 1;
@@ -943,14 +1211,19 @@ chart.append("text")
         zippedData = zipData(input[years-1993]);
         
 
-         var x2 = d3.scale.linear()
-         .domain([0, d3.max(zippedData)])
-         .range([0, chartWidth]);
+         maxX = d3.max(zippedData);
+maxXX = d3.max(zippedData2);
+
+max = Math.max(maxX, maxXX);
+
+var x2 = d3.scale.linear()
+    .domain([0, max])
+    .range([0, 300]);
 
            svg.selectAll("g").select("rect")
                .data(zippedData)
                .each(function(d, i) {
-                d3.select(this).attr("width", x2(zippedData[i]));
+                d3.select(this).transition().delay(100).attr("width", x2(zippedData[i]));
                 });
 
         svg.selectAll("g").select("text.insideText")
@@ -960,7 +1233,7 @@ chart.append("text")
 
         svg.selectAll("g").select("text.label")
             .each(function(d, i) {
-                d3.select(this).text(input[years-1993].labels[i]);
+                d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
             }); 
 
         svg.select("text.titleYear")
@@ -969,11 +1242,74 @@ chart.append("text")
             }); 
      });
 
+    
+
+    titleLeft2 = chart.append("text")
+    .attr("class", "titleLeft2")
+    .attr("x", titleX - 90)
+    .attr("y", titleY + 40)
+    .style("visibility", "hidden")
+    .text("<")
+    .on("mouseover", function(d, i) {          
+     titleLeft2.style("fill", "#3182bd")
+              })
+    .on("mouseout", function(d, i) {          
+     titleLeft2.style("fill", "black")
+              })
+    .on("click", function() { 
+
+      years2 = years2 -1;
+      if(years2<1993){years2=1993};
+
+        zippedData2 = zipData(input[years2-1993]);
+        
+
+         maxX = d3.max(zippedData);
+maxXX = d3.max(zippedData2);
+
+max = Math.max(maxX, maxXX);
+
+var x2 = d3.scale.linear()
+    .domain([0, max])
+    .range([0, 300]);
+
+           bar2v
+               .data(zippedData2)
+                     
+               .each(function(d, i) {
+                d3.select(this).transition().delay(100).attr("width", x2(zippedData2[i]));
+                });
+
+
+        insideText2
+            .each(function(d, i) {
+                d3.select(this).text("$"+zippedData2[i]+"MM");
+            });     
+
+        label2
+            .each(function(d, i) {
+                d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
+            }); 
+
+        titleYear2
+            .each(function(d, i) {
+                d3.select(this).text(years2);
+            }); 
+     });
+
+//COMPARE YEARS
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-
 
 
 
