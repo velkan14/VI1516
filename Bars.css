@@ -93,7 +93,7 @@
 
 
 .demoSelection {
-    position: absolute;
+    position: relative;
     width: 100px;
     top:70px;
     left:170px;
@@ -103,7 +103,7 @@
 }
 
 .demoSelection2 {
-    position: absolute;
+    position: relative;
     width: 100px;
     top:70px;
     left:600px;

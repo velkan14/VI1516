@@ -716,25 +716,25 @@ p.set("0","Food and live animals"); p.set("0","Live animals other than animals o
 
 
 var chartWidth       = 300,
-    barHeight        = 60,
+    barHeight        = 40,
     groupHeight      = barHeight * 10,
     gapBetweenGroups = 30,
     spaceForLabels   = 500,
     spaceForTitle    = 100,
     marginWidth      = 0,
-    marginHeight     = 150,
+    marginHeight     = 130,
     titleX           = 290,
     titleY           = -110;
 
 var svg = d3.select("#countryvis").append("svg")
-    .attr("class", "chart")
+    .attr("class", "chartBar")
     .attr("width", marginWidth + chartWidth)
     .attr("height", marginHeight + groupHeight)
     .attr("transform", "translate(" + marginWidth + "," + marginHeight + ")");
     
 
-d3.select("#countryvis").append("chartArea").append("select").attr("class", "demoSelection");
-d3.select("#countryvis").append("chartArea2").append("select").attr("class", "demoSelection2");
+d3.select("body").append("chartArea").append("select").attr("class", "demoSelection");
+d3.select("body").append("chartArea2").append("select").attr("class", "demoSelection2");
 
 
 
@@ -745,7 +745,7 @@ options = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
 
 
 sel1 = d3.select(".demoSelection2")
-    .style("visibility", "visible")
+    .style("visibility", "hidden")
     .selectAll("option")
     .data(options)
     .enter()
@@ -796,12 +796,12 @@ var yAxis = d3.svg.axis()
 
 
 // Specify the chart area and dimensions
-var chart = d3.select(".chart")
+var chartBar = d3.select(".chartBar")
     .attr("width", spaceForLabels + chartWidth)
     .attr("height", chartHeight + marginHeight);// + espaco para o titulo
 
 // Create bars
-var bar = chart.selectAll("g")
+var bar = chartBar.selectAll("g")
     .data(zippedData)
     .enter().append("g")
     .attr("transform", function(d, i) {
@@ -809,7 +809,7 @@ var bar = chart.selectAll("g")
     });
 
 
-var bar2 = chart.selectAll("g2")
+var bar2 = chartBar.selectAll("g2")
     .data(zippedData2)
     .enter().append("g")
     .attr("transform", function(d, i) {
@@ -857,7 +857,7 @@ insideText2 = bar2.append("text")
     .data(zippedData2)
     .attr("class", "insideText2")
     .attr("x", 0)
-    .attr("y", barHeight / 2)
+    .attr("y", barHeight / 2 + 20)
     .attr("dy", ".35em")
     .attr("transform", function(d, i) {
       return "translate(10,60) rotate(180)";
@@ -929,7 +929,7 @@ label2 = bar.append("text")
 
 // VERTICAL LINE
 
-chart.append("g")
+chartBar.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
@@ -941,19 +941,21 @@ chart.append("g")
 
 //Titulo
 
-chart.append("text")
+chartBar.append("text")
       .attr("class", "titleCountry")
       .attr("x", titleX + 200)
-      .attr("y", titleY)
+      .attr("y", titleY+25)
+      .style("fill", "black")
+      .style("font", "40px sans-serif")
+      .style("text-anchor", "middle")
       .text(m.get(vis_title));
-    
 
 
 
 
 
 
-titleYear2 = chart.append("text")
+titleYear2 = chartBar.append("text")
     .attr("class", "titleYear2")
     .attr("x", titleX + 20)
     .attr("y", titleY +40)
@@ -968,9 +970,9 @@ titleYear2 = chart.append("text")
          titleYear2.style("visibility", "hidden")
     });    
 
-titleClose = chart.append("text")
+titleClose = chartBar.append("text")
     .attr("class", "titleClose")
-    .attr("x", titleX -50)
+    .attr("x", titleX -30)
     .attr("y", titleY +400)
     .attr("visibility", "hidden")
     .attr("text-anchor", "middle")
