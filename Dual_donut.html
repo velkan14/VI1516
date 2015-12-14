@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  transition: fill 250ms linear;
+  transition-delay: 150ms;
+}
+
+
+.arc1 text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc1 path {
+  transition: fill 250ms linear;
+  transition-delay: 150ms;
+}
+
+
+
+
+#donut {
+
+width:500px;
+height:500px;
+background: url("../Nova_pasta/visdetail.png") no-repeat;
+background-size: 84%;
+background-position: center;
+} 
+
+</style>
+<body>
+
+
+
+<div id="donut"></div>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+var width = 500,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+	
+var colorUp = d3.scale.ordinal()
+    .range(["#08519c", "#08519c", "#08519c", "#2171b5", "#2171b5", "#2171b5", "#4292c6","#4292c6", "#6baed6", "#6baed6", "#6baed6", "#9ecae1", "#9ecae1","#9ecae1", "#c6dbef", "#c6dbef", "#c6dbef", "#deebf7", "#deebf7", "#deebf7"]);
+	
+var colorDown = d3.scale.ordinal()
+    .range(["#a50f15", "#a50f15", "#a50f15", "#cb181d", "#cb181d", "#cb181d", "#ef3b2c","#ef3b2c", "#ef3b2c", "#fb6a4a", "#fb6a4a", "#fb6a4a", "#fc9272","#fc9272", "#fc9272", "#fcbba1", "#fcbba1", "#fcbba1", "#fee0d2", "#fee0d2"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 40)
+	.cornerRadius(5);
+
+var degree = Math.PI/180; // just to convert the radian-numbers
+var upSide = d3.layout.pie()
+    .sort(null)
+	.startAngle(-90*degree).endAngle(90*degree)
+	.padAngle(.01)
+    .value(function(d) { return d.eci; });
+	
+var downSide = d3.layout.pie()
+    .sort(null)
+	.startAngle(90*degree).endAngle(4.71)
+	.padAngle(.01)
+    .value(function(d) { return d.numb; });
+	
+var svg = d3.select("#donut").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+ 
+ 
+
+d3.csv("data.csv", type, function(error, data) {
+  if (error) throw error;
+
+  var g = svg.selectAll(".arc")
+      .data(upSide(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return colorUp(d.data.rank); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.rank; });
+  
+  var h = svg.selectAll(".arc1")
+      .data(downSide(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  h.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return colorDown(d.data.rank); });
+
+  h.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.rank; });
+	  
+});
+
+
+
+function type(d) {
+  d.eci = +d.eci;
+  d.numb = +d.numb;
+  return d;
+}
+
+
+</script>
