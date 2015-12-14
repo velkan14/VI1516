@@ -4,12 +4,12 @@ function genBars(){
 //Chamada incial á funcao que processa o ficheiro e o apresenta
 bars("prt", 2000, 2013);
 
- 
 
 
 
 
-function bars(vis_title, years2, years) 
+
+function bars(vis_title, years2, years)
 {
 //CAREFULL
 //d3.select("#countryvis").select("svg").remove();
@@ -28,7 +28,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -40,16 +40,16 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
   var data = [];
-  data[0] = 
+  data[0] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -60,7 +60,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -72,15 +72,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[1] = 
+  data[1] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -91,7 +91,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -103,15 +103,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[2] = 
+  data[2] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -122,7 +122,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -134,15 +134,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[3] = 
+  data[3] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -153,7 +153,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -165,15 +165,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[4] = 
+  data[4] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -184,7 +184,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -196,15 +196,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[5] = 
+  data[5] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -215,7 +215,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -227,15 +227,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[6] = 
+  data[6] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -246,7 +246,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -258,15 +258,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[7] = 
+  data[7] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -277,7 +277,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -289,15 +289,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[8] = 
+  data[8] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -308,7 +308,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -320,15 +320,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[9] = 
+  data[9] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -339,7 +339,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -351,15 +351,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[10] = 
+  data[10] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -370,7 +370,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -382,15 +382,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[11] = 
+  data[11] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -401,7 +401,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -413,15 +413,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[12] = 
+  data[12] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -432,7 +432,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -444,15 +444,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[13] = 
+  data[13] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -463,7 +463,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -475,15 +475,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[14] = 
+  data[14] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -494,7 +494,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -506,15 +506,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[15] = 
+  data[15] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -525,7 +525,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -537,15 +537,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[16] = 
+  data[16] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -556,7 +556,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -568,15 +568,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[17] = 
+  data[17] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -587,7 +587,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -599,15 +599,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[18] = 
+  data[18] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -618,7 +618,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -630,15 +630,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[19] = 
+  data[19] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -649,7 +649,7 @@ function bars(vis_title, years2, years)
 
       headerNames = d3.keys(d[0]);
       matchedRow  = d.filter(function(d) { return d.country == vis_title; });
-      
+
       country =   matchedRow[0].country;
       top1    =  +matchedRow[0].top1;
       top2    =  +matchedRow[0].top2;
@@ -661,15 +661,15 @@ function bars(vis_title, years2, years)
       val3    = (+matchedRow[0].val3).toFixed(2);
       val4    = (+matchedRow[0].val4).toFixed(2);
       val5    = (+matchedRow[0].val5).toFixed(2);
-  
+
   var returnedArray = [top1, top2, top3, top4, top5, val1, val2, val3, val4, val5];
 
-  data[20] = 
+  data[20] =
   {
     labels: [ top1, top2, top3, top4, top5  ],
-    series: 
+    series:
     [
-      { 
+      {
         label: years,
         values: [returnedArray[5],returnedArray[6],returnedArray[7],returnedArray[8],returnedArray[9]]
       },
@@ -677,7 +677,7 @@ function bars(vis_title, years2, years)
   };
 
   rangeBars(data, years, years2);
- 
+
    });});});});});});});});});});});});});});});});});});});});
 });
 
@@ -726,12 +726,12 @@ var chartWidth       = 300,
     titleX           = 290,
     titleY           = -110;
 
-var svg = d3.select("#countryvis").append("svg")
+var svg = d3.select("#rankvis").append("svg")
     .attr("class", "chartBar")
     .attr("width", marginWidth + chartWidth)
     .attr("height", marginHeight + groupHeight)
     .attr("transform", "translate(" + marginWidth + "," + marginHeight + ")");
-    
+
 
 d3.select("body").append("chartArea").append("select").attr("class", "demoSelection");
 d3.select("body").append("chartArea2").append("select").attr("class", "demoSelection2");
@@ -780,7 +780,7 @@ max = Math.max(maxX, maxXX);
 
 var x = d3.scale.linear()
     .domain([0, max])
-    .range([0, 300]);   
+    .range([0, 300]);
 
 
 
@@ -814,13 +814,13 @@ var bar2 = chartBar.selectAll("g2")
     .enter().append("g")
     .attr("transform", function(d, i) {
       return "translate(" + spaceForLabels + "," + (barHeight-1 +(i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data2.series.length)))) + ") rotate(180)";
-      
+
     });
-    
 
 
-var div = d3.select("#countryvis").append("div")   
-         .attr("class", "tooltip")               
+
+var div = d3.select("#rankvis").append("div")
+         .attr("class", "tooltip")
         .style("opacity", 0);
 
 
@@ -881,19 +881,19 @@ bar.append("text")
         return p.get(data.labels[Math.floor(i/data.series.length)]).substring(0,12)+'...';
       else
         return ""})
-        .on("mouseover", function(d, i) {      
-                div.transition()        
-                .duration(200)      
-                .style("opacity", .9); 
-                div.html(p.get(data.labels[Math.floor(i/data.series.length)]))  
-                .style("left", (d3.event.pageX) + "px")     
+        .on("mouseover", function(d, i) {
+                div.transition()
+                .duration(200)
+                .style("opacity", .9);
+                div.html(p.get(data.labels[Math.floor(i/data.series.length)]))
+                .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
-                .style("opacity", 1);  
-              })                  
-        .on("mouseout", function(d) {       
-                div.transition()        
-                .duration(200)      
-                .style("opacity", 0); 
+                .style("opacity", 1);
+              })
+        .on("mouseout", function(d) {
+                div.transition()
+                .duration(200)
+                .style("opacity", 0);
         });
 
 
@@ -908,19 +908,19 @@ label2 = bar.append("text")
         return p.get(data2.labels[Math.floor(i/data2.series.length)]).substring(0,12)+'...';
       else
         return ""})
-        .on("mouseover", function(d, i) {      
-                div.transition()        
-                .duration(200)      
-                .style("opacity", .9); 
-                div.html(p.get(data2.labels[Math.floor(i/data2.series.length)]))  
-                .style("left", (d3.event.pageX) + "px")     
+        .on("mouseover", function(d, i) {
+                div.transition()
+                .duration(200)
+                .style("opacity", .9);
+                div.html(p.get(data2.labels[Math.floor(i/data2.series.length)]))
+                .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
-                .style("opacity", 1);  
-              })                  
-        .on("mouseout", function(d) {       
-                div.transition()        
-                .duration(200)      
-                .style("opacity", 0); 
+                .style("opacity", 1);
+              })
+        .on("mouseout", function(d) {
+                div.transition()
+                .duration(200)
+                .style("opacity", 0);
         });
 
 
@@ -961,14 +961,14 @@ titleYear2 = chartBar.append("text")
     .attr("y", titleY +40)
     .attr("text-anchor", "middle")
     .text("+Add")
-    .on("click", function(d) {     
-         d3.select(".demoSelection").style("visibility", "visible");  
+    .on("click", function(d) {
+         d3.select(".demoSelection").style("visibility", "visible");
          bar2v.style("visibility", "visible");
          insideText2.style("visibility", "visible");
          label2.style("visibility", "visible");
          titleClose.style("visibility", "visible");
          titleYear2.style("visibility", "hidden")
-    });    
+    });
 
 titleClose = chartBar.append("text")
     .attr("class", "titleClose")
@@ -977,16 +977,16 @@ titleClose = chartBar.append("text")
     .attr("visibility", "hidden")
     .attr("text-anchor", "middle")
     .text("Click to hide")
-    .on("click", function(d) {  
+    .on("click", function(d) {
          titleYear2.text("+Add")
-         .style("visibility", "visible")    
+         .style("visibility", "visible")
          bar2v.style("visibility", "hidden");
          insideText2.style("visibility", "hidden");
          label2.style("visibility", "hidden");
          titleClose.style("visibility", "hidden");
          d3.select(".demoSelection")
-         .style("visibility", "hidden") 
-    });  
+         .style("visibility", "hidden")
+    });
 
 
 
@@ -994,7 +994,7 @@ titleClose = chartBar.append("text")
 
 
 d3.select(".demoSelection")
-    .on("click", function() { 
+    .on("click", function() {
 
 
       key = this.selectedIndex;
@@ -1002,7 +1002,7 @@ d3.select(".demoSelection")
       years2 = 1993 +key;
 
         zippedData2 = zipData(input[years2-1993]);
-        
+
 
          maxX = d3.max(zippedData);
 maxXX = d3.max(zippedData2);
@@ -1015,7 +1015,7 @@ var x2 = d3.scale.linear()
 
            bar2v
                .data(zippedData2)
-                     
+
                .each(function(d, i) {
                 d3.select(this).transition().delay(100).attr("width", x2(zippedData2[i]));
                 });
@@ -1024,17 +1024,17 @@ var x2 = d3.scale.linear()
         insideText2
             .each(function(d, i) {
                 d3.select(this).text("$"+zippedData2[i]+"MM");
-            });     
+            });
 
         label2
             .each(function(d, i) {
                 d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
-            }); 
+            });
 
         titleYear2
             .each(function(d, i) {
                 d3.select(this).text(years2);
-            }); 
+            });
      });
 
 
@@ -1044,14 +1044,14 @@ var x2 = d3.scale.linear()
 
 
 d3.select(".demoSelection2")
-    .on("change", function() { 
+    .on("change", function() {
 
 key = this.selectedIndex;
 
 
       years = 1993+key;
         zippedData = zipData(input[years-1993]);
-        
+
 
 maxX = d3.max(zippedData);
 maxXX = d3.max(zippedData2);
@@ -1064,7 +1064,7 @@ var x2 = d3.scale.linear()
 
            svg.selectAll("g").select("rect")
                .data(zippedData)
-                     
+
                .each(function(d, i) {
                 d3.select(this).transition().delay(100).attr("width", x2(zippedData[i]));
                 });
@@ -1073,17 +1073,17 @@ var x2 = d3.scale.linear()
         svg.selectAll("g").select("text.insideText")
             .each(function(d, i) {
                 d3.select(this).text("$"+zippedData[i]+"MM");
-            });     
+            });
 
         svg.selectAll("g").select("text.label")
             .each(function(d, i) {
                 d3.select(this).text(p.get(input[years-1993].labels[i]).substring(0,12)+'...');
-            }); 
+            });
 
         svg.select("text.titleYear")
             .each(function(d, i) {
                 d3.select(this).text(years);
-            }); 
+            });
      });
 
 

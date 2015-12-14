@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <title>World Economy</title>
   <script src="lib/d3.v3.min.js"></script>
- 
+
   <script src="slider/js/vendor/jquery-1.11.3.min.js"> </script>
   <script src="slider/js/ion-rangeSlider/ion.rangeSlider.js"> </script>
    <script src="d3.geo.js"></script>
   <script src="Map.js"></script>
-  
+
  <!--   <script type="text/javascript" src="bootstrapBtns/js/jquery-1.10.2.min.js"></script>
    <script type="text/javascript" src="bootstrapBtns/bootstrap/js/bootstrap.min.js"></script> -->
 <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="slider/css/ion.rangeSlider.css">
   <link rel="stylesheet" href="slider/css/ion.rangeSlider.skinFlat.css">
   <link rel="stylesheet" href="slider/css/normalize.css">
-  
+
     <link rel="stylesheet" href="graphs.css">
   <link rel="stylesheet" href="mapstyle.css">
 
 
   <!-- <link rel="stylesheet" type="text/css" href="bootstrapBtns/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="bootstrapBtns/font-awesome/css/font-awesome.min.css"> -->
-   
+
 
 </head>
 
@@ -46,7 +46,7 @@
 .items-collection label.btn-default{
     width:90%;
     border:1px solid #305891;
-    margin:5px; 
+    margin:5px;
     border-radius: 17px;
     color: #305891;
 }
@@ -137,7 +137,7 @@ box-shadow: 0 1px 2px 0 black;
 					  <li class="tr">
 						<div class="clip" onclick="showCountry()"><a href="#" class="content">
 						  <img src="http://c1.quickcachr.fotos.sapo.pt/i/Ba411ad50/14158343_uaPQv.jpeg" </>
-						  <h2 class="title" style="font-size:15px">Country</h2>
+						  <h2 class="title" style="font-size:15px">Rank</h2>
 						  <p>specific visualizations</p>
 						</a></div>
 					  </li>
@@ -151,7 +151,7 @@ box-shadow: 0 1px 2px 0 black;
 					  <li class="tr">
 						<div class="clip" onclick="showRank()"><a href="#" class="content">
 						  <img src="https://1yesbut.files.wordpress.com/2012/01/dsc_3175-copy.jpg?w=655&h=456" alt="" />
-						  <h2 class="title" style="font-size:15px">Rank</h2>
+						  <h2 class="title" style="font-size:15px">Country</h2>
 						  <p>specific visualizations</p>
 						</a></div>
 					  </li>
@@ -190,10 +190,10 @@ box-shadow: 0 1px 2px 0 black;
           <div id="scatterplotvis"></div>
           <div id="heatmapvis"></div>
       </div></li>
-		  <li><div id="rankvis" style=" position: absolute;  width:45%; height: 540px; z-index:13; display:none">Rank</div></li>
+		  <li><div id="rankvis" style=" position: absolute;  width:45%; height: 540px; z-index:13; display:none"></div></li>
 		</ul>
 	</div>
-	
+
 	<!-- <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
                     <div class="info-block block-info clearfix" style="width:1000px">
                         <div data-toggle="buttons">
@@ -201,70 +201,70 @@ box-shadow: 0 1px 2px 0 black;
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-paw fa-2x"></span>
-                                     
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c1"  style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-coffee fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c2" style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-tree fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c3" style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-bolt fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c4" style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-tint fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c5"  style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-flask fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c6"  style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-paper-plane-o fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c7" style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-gear fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c8"  style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-suitcase fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="c9"  style="width:80px;border-radius:17px">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa fa-money fa-2x"></span>
-                                   
+
                                 </div>
                             </label>
 							<label class="btn btn-default" id="undo"  style="width:50px;border-radius:17px; color:crimson; border-color: crimson">
@@ -276,12 +276,12 @@ box-shadow: 0 1px 2px 0 black;
                         </div>
                     </div>
                 </div> -->
-	
-	
+
+
 	</div>
-	
+
 	<script>
-	
+
 	var hexNav = document.getElementById('hexNav');
 	//hex layout menu
     document.getElementById('menuBtn').onclick = function() {
@@ -294,9 +294,9 @@ box-shadow: 0 1px 2px 0 black;
 		hexNav.style.zIndex = '15';
       }
     }
-	
-	
-	</script>	
+
+
+	</script>
 	  <script src="LayoutScript.js"></script>
 	<script src="graphs.js"></script>
   <script src="Tree.js"></script>
