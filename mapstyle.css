@@ -1,7 +1,7 @@
 
-svg {
-  width: 1280px;
-  height: 800px;
+svg1 {
+  width: 550px;
+  height: 550px;
   pointer-events: all;
 }
 
@@ -11,7 +11,7 @@ circle {
 
 path {
   fill: gray;
-  stroke: darkgray;
+  stroke: black;
 }
 
 path:hover {

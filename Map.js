@@ -1,19 +1,21 @@
+function gen_map(){
+
 var feature;
 var data1;
 var data2;
 
 var projection = d3.geo.azimuthal()
-    .scale(280)
+    .scale(230)
     .origin([-71.03,42.37])
     .mode("orthographic")
-    .translate([300, 300]);
+    .translate([250, 250]);
 
 var circle = d3.geo.greatCircle()
     .origin(projection.origin());
 
 // TODO fix d3.geo.azimuthal to be consistent with scale
 var scale = {
-  orthographic: 380,
+  orthographic: 230,
   stereographic: 380,
   gnomonic: 380,
   equidistant: 380 / Math.PI * 2,
@@ -23,13 +25,13 @@ var scale = {
 var path = d3.geo.path()
     .projection(projection);
 
-var svg = d3.select("#mapvis").append("svg:svg")
+var svg1 = d3.select("#mapvis").append("svg:svg")
     .attr("width", 500)
     .attr("height", 500)
     .on("mousedown", mousedown);
 
 d3.json("data/world_countries.json", function(collection) {
-  feature = svg.selectAll("path")
+  feature = svg1.selectAll("path")
       .data(collection.features)
     .enter().append("svg:path")
       .attr("d", clip);
@@ -128,3 +130,4 @@ function clip(d) {
   return path(circle.clip(d));
 }
 
+}
